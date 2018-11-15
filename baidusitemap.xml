@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://xiodra.github.io/2018/08/20/%E5%85%B3%E4%BA%8E%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2018-11-15T17:11:25.928Z</lastmod>
+    <data>
+        <display>
+        <title>关于这个博客</title>
+        <pubTime>2018-08-20T07:05:43.000Z</pubTime>
+        
+        <tag>个人</tag>
+         
+         
+           
+             
+              <breadCrumb title="我" url="http://xiodra.github.io/categories/%E6%88%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+  <url>
+    <loc>http://xiodra.github.io/2018/08/20/node-js%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2018-11-15T15:44:21.497Z</lastmod>
+    <data>
+        <display>
+        <title>node.js安装</title>
+        <pubTime>2018-08-20T00:50:52.000Z</pubTime>
+        
+        <tag>安装</tag>
+         
+        <tag>node.js</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://xiodra.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xiodra.github.io/2018/08/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%B4%E6%98%8E/</loc>
+    <lastmod>2018-11-15T15:44:21.496Z</lastmod>
+    <data>
+        <display>
+        <title>git常用命令说明</title>
+        <pubTime>2018-08-17T04:43:55.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+        <tag>命令</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://xiodra.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xiodra.github.io/2018/08/20/SS%EF%BC%88R%EF%BC%89%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2018-11-15T15:44:21.496Z</lastmod>
+    <data>
+        <display>
+        <title>SS（R）服务器搭建</title>
+        <pubTime>2018-08-20T05:46:34.000Z</pubTime>
+        
+        <tag>安装</tag>
+         
+        <tag>VPS</tag>
+         
+        <tag>SSR</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://xiodra.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xiodra.github.io/2018/08/20/React-native-%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2018-11-15T15:44:21.494Z</lastmod>
+    <data>
+        <display>
+        <title>React-native 学习</title>
+        <pubTime>2018-08-20T05:53:38.000Z</pubTime>
+        
+        <tag>开发</tag>
+         
+        <tag>React Native</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习" url="http://xiodra.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xiodra.github.io/2018/08/20/MongoDB-%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2018-11-15T15:44:21.493Z</lastmod>
+    <data>
+        <display>
+        <title>MongoDB 学习</title>
+        <pubTime>2018-08-20T07:46:25.000Z</pubTime>
+        
+        <tag>MongoDB</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习" url="http://xiodra.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xiodra.github.io/2018/08/20/Docker-%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2018-11-15T15:44:21.493Z</lastmod>
+    <data>
+        <display>
+        <title>Docker 学习</title>
+        <pubTime>2018-08-20T05:57:14.000Z</pubTime>
+        
+        <tag>Docker</tag>
+         
+        <tag>开发</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习" url="http://xiodra.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>

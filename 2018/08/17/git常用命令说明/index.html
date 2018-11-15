@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>git常用命令说明 | Xiodra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="个人平时使用较多的Git命令收录。">
+<meta name="keywords" content="Git,命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git常用命令说明">
+<meta property="og:url" content="http://xiodra.github.io/2018/08/17/git常用命令说明/index.html">
+<meta property="og:site_name" content="Xiodra">
+<meta property="og:description" content="个人平时使用较多的Git命令收录。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-15T15:44:21.496Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git常用命令说明">
+<meta name="twitter:description" content="个人平时使用较多的Git命令收录。">
+  
+    <link rel="alternative" href="/atom.xml" title="Xiodra" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Xiodra</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">Code is far away from bug with the animal protecting！</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://gitee.com/xiodra" title="github">github</a>
+                            
+                                <a class="fl facebook"  target="_blank" href="https://www.facebook.com/xiodra.hu" title="facebook">facebook</a>
+                            
+                                <a class="fl mail"  target="_blank" href="mailto:y.dragon.hu@hotmail.com" title="mail">mail</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/SSR/" style="font-size: 10px;">SSR</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/个人/" style="font-size: 10px;">个人</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/安装/" style="font-size: 20px;">安装</a> <a href="/tags/开发/" style="font-size: 20px;">开发</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn(tommy123)</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault(tommy123)</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书(tommy123)</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">程序猿（老猿）| 架构狮（幼崽），还在成长的路上。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Xiodra</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Xiodra</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Code is far away from bug with the animal protecting！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://gitee.com/xiodra" title="github">github</a>
+                    
+                        <a class="facebook" target="_blank" href="https://www.facebook.com/xiodra.hu" title="facebook">facebook</a>
+                    
+                        <a class="mail" target="_blank" href="mailto:y.dragon.hu@hotmail.com" title="mail">mail</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-git常用命令说明" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2018/08/17/git常用命令说明/" class="article-date">
+      <time datetime="2018-08-17T04:43:55.000Z" itemprop="datePublished">2018-08-17</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      git常用命令说明
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/工具/">工具</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<p>  个人平时使用较多的Git命令收录。</p>
+<a id="more"></a>
+<p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
+<h1 id="Git-命令说明"><a href="#Git-命令说明" class="headerlink" title="Git 命令说明"></a>Git 命令说明</h1><!-- TOC -->
+<ul>
+<li><a href="#git-命令说明">Git 命令说明</a><ul>
+<li><a href="#1-全局user-name-和email设置">1. 全局user name 和email设置</a></li>
+<li><a href="#2-生成ssh密钥">2. 生成SSH密钥</a></li>
+<li><a href="#3-如何用命令将本地项目上传到git">3. 如何用命令将本地项目上传到git</a></li>
+<li><a href="#4-如何用命令将服务器项目下载到本地">4. 如何用命令将服务器项目下载到本地</a></li>
+<li><a href="#5-常用命令">5. 常用命令</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<hr>
+<h2 id="1-全局user-name-和email设置"><a href="#1-全局user-name-和email设置" class="headerlink" title="1. 全局user name 和email设置"></a>1. 全局user name 和email设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xiodra&quot;</span><br><span class="line">git config --global user.email &quot;y.dragon.hu@hotmail.com&quot;</span><br></pre></td></tr></table></figure>
+<p>或者当前项目目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name &quot;xiodra&quot;</span><br><span class="line">git config user.email &quot;y.dragon.hu@hotmail.com&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2-生成SSH密钥"><a href="#2-生成SSH密钥" class="headerlink" title="2. 生成SSH密钥"></a>2. 生成SSH密钥</h2><ul>
+<li><p>查看ssh</p>
+<p><code>cd ~/.ssh</code></p>
+<p>如果没有密钥则不会有此文件夹，有则备份删除</p>
+</li>
+<li><p>生成ssh</p>
+<p><code>ssh-keygen -t rsa -C &quot;y.dragon.hu@hotmail.com&quot;</code></p>
+<p>按3个回车，密码为空。最后得到了两个文件：<strong><em>id_rsa</em></strong>和<strong><em>id_rsa.pub</em></strong></p>
+</li>
+<li><p>查看ssh-keygen</p>
+<p><code>cat ~/.ssh/id_rsa.pub</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="3-如何用命令将本地项目上传到git"><a href="#3-如何用命令将本地项目上传到git" class="headerlink" title="3. 如何用命令将本地项目上传到git"></a>3. 如何用命令将本地项目上传到git</h2><ul>
+<li><p>（先进入项目文件夹）通过命令 <strong>git init </strong>把这个目录变成git可以管理的仓库</p>
+<p><code>git init</code></p>
+</li>
+<li><p>把文件添加到版本库中，使用命令 <strong>git add .</strong>添加到暂存区里面去，不要忘记后面的小数点<strong>“.”</strong>，意为添加文件夹下的所有文件</p>
+<p><code>git add .</code></p>
+</li>
+<li><p>用命令 <strong>git commit</strong>告诉Git，把文件提交到仓库。引号内为提交说明</p>
+<p><code>git commit -m &quot;first commit&quot;</code></p>
+</li>
+<li><p>关联到远程库</p>
+<p><code>git remote add origin 你的远程库地址</code></p>
+</li>
+<li><p>获取远程库与本地同步合并<strong>（如果远程库不为空必须做这一步，否则后面的提交会失败）</strong></p>
+<p><code>git pull --rebase origin master</code></p>
+</li>
+<li><p>把本地库的内容推送到远程，使用 git push命令，实际上是把当前分支master推送到远程。</p>
+<p><strong><em>执行此命令后会要求输入用户名、密码，验证通过后即开始上传</em></strong></p>
+<p><code>git push -u origin master</code></p>
+</li>
+<li><p>状态查询</p>
+<p><code>git status</code></p>
+<p><strong><em>以上所有操作都是在进入项目文件夹操作</em></strong></p>
+</li>
+</ul>
+<hr>
+<h2 id="4-如何用命令将服务器项目下载到本地"><a href="#4-如何用命令将服务器项目下载到本地" class="headerlink" title="4. 如何用命令将服务器项目下载到本地"></a>4. 如何用命令将服务器项目下载到本地</h2><ul>
+<li><p>使用 <strong>git clone</strong> 命令下载项目</p>
+<p><code>git clone -b 分支名 项目git地址</code></p>
+<p>或者直接下载master分支</p>
+<p><code>git clone 项目git地址</code></p>
+<p>或者指定下载目录</p>
+<p><code>git clone 项目git地址 &quot;项目目录&quot;</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="5-常用命令"><a href="#5-常用命令" class="headerlink" title="5. 常用命令"></a>5. 常用命令</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;repository&gt; --recursive 递归的方式克隆整个项目</span><br><span class="line">git submodule add &lt;repository&gt; &lt;path&gt; 添加子模块</span><br><span class="line">git submodule init 初始化子模块</span><br><span class="line">git submodule update 更新子模块</span><br><span class="line">git submodule foreach git pull 拉取所有子模块</span><br><span class="line">git submodule update --init --recursive 递归的方式克隆子模块项目</span><br><span class="line">git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态</span><br><span class="line">git stash #把所有没有提交的修改暂存到stash里面。可用git stash pop回复。</span><br></pre></td></tr></table></figure>
+<p>  以下是添加 <em>.gitignore</em> 的步骤</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &apos;备注&apos;</span><br></pre></td></tr></table></figure></excerpt>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2018/08/17/git常用命令说明/">git常用命令说明</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Xiodra 的个人博客">Xiodra</a></p>
+        <p><span>发布时间:</span>2018年08月17日 - 12时43分</p>
+        <p><span>最后更新:</span>2018年11月15日 - 23时44分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/17/git常用命令说明/" title="git常用命令说明">http://xiodra.github.io/2018/08/17/git常用命令说明/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xiodra.github.io/2018/08/17/git常用命令说明/　　作者: Xiodra" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2018/08/20/node-js安装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          node.js安装
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-命令说明"><span class="toc-number">1.</span> <span class="toc-text">Git 命令说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-全局user-name-和email设置"><span class="toc-number">1.1.</span> <span class="toc-text">1. 全局user name 和email设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-生成SSH密钥"><span class="toc-number">1.2.</span> <span class="toc-text">2. 生成SSH密钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-如何用命令将本地项目上传到git"><span class="toc-number">1.3.</span> <span class="toc-text">3. 如何用命令将本地项目上传到git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如何用命令将服务器项目下载到本地"><span class="toc-number">1.4.</span> <span class="toc-text">4. 如何用命令将服务器项目下载到本地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-常用命令"><span class="toc-number">1.5.</span> <span class="toc-text">5. 常用命令</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2018/08/20/node-js安装/" title="上一篇: node.js安装">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/MongoDB-学习/">MongoDB 学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/关于这个博客/">关于这个博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/Docker-学习/">Docker 学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/React-native-学习/">React-native 学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/SS（R）服务器搭建/">SS（R）服务器搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/20/node-js安装/">node.js安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/17/git常用命令说明/">git常用命令说明</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Xiodra
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >踩过网民: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">瞄过网民: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?a4f27a7da91e854db2e777ed2327311f";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
