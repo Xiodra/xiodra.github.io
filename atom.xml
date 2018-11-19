@@ -42,30 +42,6 @@
   </entry>
   
   <entry>
-    <title>关于这个博客</title>
-    <link href="http://xiodra.github.io/2018/08/20/%E5%85%B3%E4%BA%8E%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://xiodra.github.io/2018/08/20/关于这个博客/</id>
-    <published>2018-08-20T07:05:43.000Z</published>
-    <updated>2018-11-15T17:11:25.928Z</updated>
-    
-    <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要=""><p>  本人5年程序猿，最终也开博了。</p><a id="more"></a><the rest="" of="" contents="" |="" 余下全文=""><blockquote><p>为什么</p></blockquote><p>  我，2012年在 <strong><em>广州大学华软软件学院毕业</em></strong> ，程序猿干了5年，从来没有开过博，没有做过坛主</p><p>  但是平时还是积累了一些文章，开始是为了写些工作日报、周报啥的，然后慢慢的就是收集一些开发过程中的搭建文档，自己根据步骤一步一步写下来的，当然也是参照度娘里面的大神，只是用自己的文字整理出来的。</p><p>  这些文章是放在 <strong><em>码云</em></strong> 的个人私有项目中。</p><p>  在2018年8月1日，在中国建军节这天，突然觉得我要把这些文章放在我的 <strong>BLOG</strong> 上面，要开始装逼了。</p><p>  经过度娘，搜索各位大神的BLOG，了解了 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener"><strong>Hexo</strong></a>和<a href="https://pages.github.com/" target="_blank" rel="noopener"><strong>Github Page</strong></a>，从此走上了我的装逼路。</p><p>  为啥不自己备案域名？首先，钱！有家室，有孩子了，就省点吧！所以，就更不想自己买服务器了。</p><blockquote><p>如何搭建</p></blockquote><p>  这个什么也不说了，直接大神路径</p><ul><li><p><a href="http://shenzekun.cn/" target="_blank" rel="noopener"><strong>shenzekun</strong></a>-&gt;<a href="http://www.shenzekun.cn/hexo的next主题个性化配置教程.html" target="_blank" rel="noopener">hexo的next主题个性化教程:打造炫酷网站</a></p></li><li><p><a href="https://geeksblog.cc/" target="_blank" rel="noopener"><strong>tommy123</strong></a>-&gt;<a href="https://geeksblog.cc/hexo-theme.html" target="_blank" rel="noopener">Hexo自用黑色主题</a></p><p>喜欢黑色，所以选了 <strong>tommy123</strong> 这位大神的主题。</p></li></ul><blockquote><p>评论版块呢</p></blockquote><p>  有家室，有孩子了！那有那么多时间看评论回复，况且也没有人气是不！！</p><p>  等以后，有机会，有时间</p></the></excerpt>]]></content>
-    
-    <summary type="html">
-    
-      &lt;excerpt in=&quot;&quot; index=&quot;&quot; |=&quot;&quot; 首页摘要=&quot;&quot;&gt;
-
-&lt;p&gt;  本人5年程序猿，最终也开博了。&lt;/p&gt;&lt;/excerpt&gt;
-    
-    </summary>
-    
-      <category term="我" scheme="http://xiodra.github.io/categories/%E6%88%91/"/>
-    
-    
-      <category term="个人" scheme="http://xiodra.github.io/tags/%E4%B8%AA%E4%BA%BA/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Docker 学习</title>
     <link href="http://xiodra.github.io/2018/08/20/Docker-%E5%AD%A6%E4%B9%A0/"/>
     <id>http://xiodra.github.io/2018/08/20/Docker-学习/</id>
