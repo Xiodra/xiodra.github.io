@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://xiodra.github.io/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/</loc>
+    <lastmod>2018-12-06T07:53:14.963Z</lastmod>
+    <data>
+        <display>
+        <title>gulp模块打包</title>
+        <pubTime>2018-12-06T07:48:33.000Z</pubTime>
+        
+        <tag>Gulp</tag>
+         
+        <tag>打包</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://xiodra.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xiodra.github.io/2018/08/20/MongoDB-%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2018-11-19T04:06:34.093Z</lastmod>
     <data>
@@ -78,11 +100,11 @@
         <title>SS（R）服务器搭建</title>
         <pubTime>2018-08-20T05:46:34.000Z</pubTime>
         
+        <tag>安装</tag>
+         
         <tag>VPS</tag>
          
         <tag>SSR</tag>
-         
-        <tag>安装</tag>
          
          
            

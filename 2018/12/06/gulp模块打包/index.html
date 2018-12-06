@@ -7,20 +7,23 @@
   
   
   
-  <title>node.js安装 | Xiodra</title>
+  <title>gulp模块打包 | Xiodra</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文主要介绍的是在windows 10下采用nvm进行安装node.js。">
-<meta name="keywords" content="安装,node.js">
+  <meta name="description" content="使用gulp打包工具打包npm模块；使用gulp-typescript打包以typescript编写的npm模块">
+<meta name="keywords" content="Gulp,打包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node.js安装">
-<meta property="og:url" content="http://xiodra.github.io/2018/08/20/node-js安装/index.html">
+<meta property="og:title" content="gulp模块打包">
+<meta property="og:url" content="http://xiodra.github.io/2018/12/06/gulp模块打包/index.html">
 <meta property="og:site_name" content="Xiodra">
-<meta property="og:description" content="本文主要介绍的是在windows 10下采用nvm进行安装node.js。">
+<meta property="og:description" content="使用gulp打包工具打包npm模块；使用gulp-typescript打包以typescript编写的npm模块">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-15T15:44:21.497Z">
+<meta property="og:image" content="http://xiodra.github.io/2018/12/06/gulp模块打包/gulp模块打包/gulp版本.png">
+<meta property="og:image" content="http://xiodra.github.io/2018/12/06/gulp模块打包/gulp模块打包/typescript下gulp依赖版本.png">
+<meta property="og:updated_time" content="2018-12-06T07:53:14.963Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node.js安装">
-<meta name="twitter:description" content="本文主要介绍的是在windows 10下采用nvm进行安装node.js。">
+<meta name="twitter:title" content="gulp模块打包">
+<meta name="twitter:description" content="使用gulp打包工具打包npm模块；使用gulp-typescript打包以typescript编写的npm模块">
+<meta name="twitter:image" content="http://xiodra.github.io/2018/12/06/gulp模块打包/gulp模块打包/gulp版本.png">
   
     <link rel="alternative" href="/atom.xml" title="Xiodra" type="application/atom+xml">
   
@@ -265,11 +268,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-node-js安装" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-gulp模块打包" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/08/20/node-js安装/" class="article-date">
-      <time datetime="2018-08-20T00:50:52.000Z" itemprop="datePublished">2018-08-20</time>
+      <a  href="/2018/12/06/gulp模块打包/" class="article-date">
+      <time datetime="2018-12-06T07:48:33.000Z" itemprop="datePublished">2018-12-06</time>
 </a>
 
     </div>
@@ -283,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      node.js安装
+      gulp模块打包
     </h1>
   
 
@@ -299,7 +302,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安装/">安装</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/">Gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/打包/">打包</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,33 +314,45 @@
           
         <excerpt in="" index="" |="" 首页摘要="">
 
-<p>  本文主要介绍的是在windows 10下采用nvm进行安装node.js。</p>
+<p>  使用gulp打包工具打包npm模块；使用gulp-typescript打包以typescript编写的npm模块</p>
 <a id="more"></a>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<h3 id="1-NVM-Windows-安装"><a href="#1-NVM-Windows-安装" class="headerlink" title="1. NVM-Windows 安装"></a>1. NVM-Windows 安装</h3><p>  <strong><a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">下载地址</a></strong></p>
+<h1 id="使用Gulp进行模块打包"><a href="#使用Gulp进行模块打包" class="headerlink" title="使用Gulp进行模块打包"></a>使用Gulp进行模块打包</h1><h2 id="中文技术文档"><a href="#中文技术文档" class="headerlink" title="中文技术文档"></a>中文技术文档</h2><p><a href="https://www.gulpjs.com.cn/" target="_blank" rel="noopener">gulp-js</a></p>
+<h2 id="入门指南"><a href="#入门指南" class="headerlink" title="入门指南"></a>入门指南</h2><blockquote>
+<p>1、全局安装 gulp：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --global gulp</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2、作为项目的开发依赖（<strong>devDependencies</strong>）安装：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>3、在项目根目录下创建一个名为 <strong>gulpfile.js</strong> 的文件：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos;, function() &#123;</span><br><span class="line">  // 将你的默认的任务代码放在这</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="使用typescript语言"><a href="#使用typescript语言" class="headerlink" title="使用typescript语言"></a>使用typescript语言</h2><blockquote>
+<p>1、除以上安装模块，还必须在项目的开发依赖（devDependencies）安装：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev typescript gulp-typescript ts-node gulpclass</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2、在项目根目录下创建一个名为 <strong>gulpfile.ts</strong> 的文件：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Gulpclass, Task, SequenceTask, MergedTask &#125; from &quot;gulpclass&quot;;</span><br><span class="line"></span><br><span class="line">const gulp = require(&quot;gulp&quot;);</span><br><span class="line">const del = require(&quot;del&quot;);</span><br><span class="line">const sourcemaps = require(&quot;gulp-sourcemaps&quot;);</span><br><span class="line">const uglify = require(&apos;gulp-uglify&apos;);</span><br><span class="line">const ts = require(&quot;gulp-typescript&quot;);</span><br><span class="line"></span><br><span class="line">@Gulpclass()</span><br><span class="line">export class Gulpfile &#123;</span><br><span class="line">    @Task()</span><br><span class="line">    clean(cb: Function) &#123;</span><br><span class="line">        return del([&quot;./lib/**&quot;], cb);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Copies all sources to the package directory.</span><br><span class="line">     */</span><br><span class="line">    @MergedTask()</span><br><span class="line">    packageCompile() &#123;</span><br><span class="line">        const tsProject = ts.createProject(&quot;tsconfig.json&quot;, &#123; typescript: require(&quot;typescript&quot;) &#125;);</span><br><span class="line">        const tsResult = gulp.src([&quot;./src/**/*.ts&quot;, &quot;./node_modules/@types/**/*.ts&quot;])</span><br><span class="line">            .pipe(sourcemaps.init())</span><br><span class="line">            .pipe(tsProject());</span><br><span class="line"></span><br><span class="line">        return [</span><br><span class="line">            tsResult.dts.pipe(gulp.dest(&quot;./lib&quot;)),</span><br><span class="line">            tsResult.js</span><br><span class="line">                .pipe(uglify())</span><br><span class="line">                .pipe(sourcemaps.write(&quot;.&quot;, &#123; sourceRoot: &quot;&quot;, includeContent: true &#125;))</span><br><span class="line">                .pipe(gulp.dest(&quot;./lib&quot;))</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @SequenceTask()</span><br><span class="line">    package() &#123;</span><br><span class="line">        return [</span><br><span class="line">            &quot;clean&quot;,</span><br><span class="line">            &quot;packageCompile&quot;,</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>4、运行，以上面例子，输入下面命令即可运行</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp package</span><br></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>在使用<strong>gulpfile.ts</strong>文件时，必须在项目的开发依赖（devDependencies）中安装<strong>ts-node</strong>模块，运行<code>gulp</code>命令时才能找到任务</p>
 <ul>
-<li><p>在官网中下载最新版本的<code>nvm-noinstall.zip</code>,并解压至<code>C:\dev\nvm</code>目录下</p>
+<li><p>检查方法，在项目目录中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp -v</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/06/gulp模块打包/./gulp模块打包/gulp版本.png" alt=""></p>
+<p>显示以上内容及安装正确，如有错误则异常，需检查安装是否正确</p>
 </li>
-<li><p>以管理员身份打开<code>C:\dev\nvm</code>目录下的<code>install.cmd</code>文件,直接回车即可,然后在<code>C:\</code>目录下会出现<code>setting.text</code>文件,把该文件拷贝至<code>C:\dev\nvm</code>目录,并且将内容改成一下内容保存即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root: C:\dev\nvm </span><br><span class="line">path: C:\dev\nodejs </span><br><span class="line">arch: 64 </span><br><span class="line">proxy: none</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后我配置环境变量，因为刚刚点击了<code>install.cmd</code>的文件，那么会在环境变量的系统变量中，生成两个环境变量：<code>NVM_HOME</code> 和 <code>NVM_SYMLINK</code> 我们开始修改这两个变量名的变量值：<code>NVM_HOME</code>的变量值为：<code>C:\dev\nvm</code>;<code>NVM_SYMLINK</code>的变量值为：<code>C:\dev\nodejs</code></p>
-</li>
-<li><p>我们还会发现，在<strong>Path</strong>中也会自动添加上<code>C:\dev\nvm;</code>或者是<code>C:\dev\nodejs</code>，如果有的话，把他们删掉，没有的话更好，我们自己来配置，在Path的最前面输入： <code>;%NVM_HOME%;%NVM_SYMLINK%;</code></p>
-</li>
-<li><p>打开一个cmd窗口输入命令：<code>nvm v</code>，那么我们会看到当前nvm的版本信息。然后我们可以安装nodejs了。</p>
-<p><strong><font color="red">PS&nbsp;以上目录可根据实际情况选择</font></strong></p>
-</li>
-</ul>
-<h3 id="2-nvm-node-js安装"><a href="#2-nvm-node-js安装" class="headerlink" title="2. nvm node.js安装"></a>2. nvm node.js安装</h3><ul>
-<li><p>安装node：<code>nvm install latest</code>或者<code>nvm install 8.9.1 (32-bit)</code>默认<strong>64-bit</strong></p>
-</li>
-<li><p>查看node所有版本:<code>nvm list available</code></p>
-</li>
-<li><p>查看当前系统node版本:<code>nvm list</code></p>
-</li>
-<li><p>切换版本：<code>nvm use 8.9.1</code></p>
+<li><p>运行<code>gulp package</code>出现<code>Task &#39;package&#39; is not in your gulpfile</code>，则检查gulp的相关依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm list gulp gulp-typescript gulpclass ts-node</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/06/gulp模块打包/./gulp模块打包/typescript下gulp依赖版本.png" alt=""></p>
 </li>
 </ul>
 </the></excerpt>
@@ -348,13 +363,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2018/08/20/node-js安装/">node.js安装</a></p>
+        <p><span>本文标题:</span><a  href="/2018/12/06/gulp模块打包/">gulp模块打包</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Xiodra 的个人博客">Xiodra</a></p>
-        <p><span>发布时间:</span>2018年08月20日 - 08时50分</p>
-        <p><span>最后更新:</span>2018年11月15日 - 23时44分</p>
+        <p><span>发布时间:</span>2018年12月06日 - 15时48分</p>
+        <p><span>最后更新:</span>2018年12月06日 - 15时53分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/20/node-js安装/" title="node.js安装">http://xiodra.github.io/2018/08/20/node-js安装/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xiodra.github.io/2018/08/20/node-js安装/　　作者: Xiodra" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/12/06/gulp模块打包/" title="gulp模块打包">http://xiodra.github.io/2018/12/06/gulp模块打包/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xiodra.github.io/2018/12/06/gulp模块打包/　　作者: Xiodra" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -365,18 +380,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2018/08/20/SS（R）服务器搭建/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          SS（R）服务器搭建
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2018/08/17/git常用命令说明/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git常用命令说明</div>
+    <a  href="/2018/08/20/MongoDB-学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MongoDB 学习</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -388,7 +394,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-NVM-Windows-安装"><span class="toc-number">1.</span> <span class="toc-text">1. NVM-Windows 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-nvm-node-js安装"><span class="toc-number">2.</span> <span class="toc-text">2. nvm node.js安装</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用Gulp进行模块打包"><span class="toc-number">1.</span> <span class="toc-text">使用Gulp进行模块打包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#中文技术文档"><span class="toc-number">1.1.</span> <span class="toc-text">中文技术文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#入门指南"><span class="toc-number">1.2.</span> <span class="toc-text">入门指南</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用typescript语言"><span class="toc-number">1.3.</span> <span class="toc-text">使用typescript语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-number">1.4.</span> <span class="toc-text">注意</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -437,13 +443,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2018/08/20/SS（R）服务器搭建/" title="上一篇: SS（R）服务器搭建">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2018/08/17/git常用命令说明/" title="下一篇: git常用命令说明">
+            <a  href="/2018/08/20/MongoDB-学习/" title="下一篇: MongoDB 学习">
                 <i class="fa fa-angle-right"></i>
             </a>
         

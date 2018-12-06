@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiodra.github.io/"/>
-  <updated>2018-11-19T04:06:34.093Z</updated>
+  <updated>2018-12-06T07:53:14.963Z</updated>
   <id>http://xiodra.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gulp模块打包</title>
+    <link href="http://xiodra.github.io/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/"/>
+    <id>http://xiodra.github.io/2018/12/06/gulp模块打包/</id>
+    <published>2018-12-06T07:48:33.000Z</published>
+    <updated>2018-12-06T07:53:14.963Z</updated>
+    
+    <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要=""><p>  使用gulp打包工具打包npm模块；使用gulp-typescript打包以typescript编写的npm模块</p><a id="more"></a><the rest="" of="" contents="" |="" 余下全文=""><h1 id="使用Gulp进行模块打包"><a href="#使用Gulp进行模块打包" class="headerlink" title="使用Gulp进行模块打包"></a>使用Gulp进行模块打包</h1><h2 id="中文技术文档"><a href="#中文技术文档" class="headerlink" title="中文技术文档"></a>中文技术文档</h2><p><a href="https://www.gulpjs.com.cn/" target="_blank" rel="noopener">gulp-js</a></p><h2 id="入门指南"><a href="#入门指南" class="headerlink" title="入门指南"></a>入门指南</h2><blockquote><p>1、全局安装 gulp：</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --global gulp</span><br></pre></td></tr></table></figure><blockquote><p>2、作为项目的开发依赖（<strong>devDependencies</strong>）安装：</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp</span><br></pre></td></tr></table></figure><blockquote><p>3、在项目根目录下创建一个名为 <strong>gulpfile.js</strong> 的文件：</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos;, function() &#123;</span><br><span class="line">  // 将你的默认的任务代码放在这</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h2 id="使用typescript语言"><a href="#使用typescript语言" class="headerlink" title="使用typescript语言"></a>使用typescript语言</h2><blockquote><p>1、除以上安装模块，还必须在项目的开发依赖（devDependencies）安装：</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev typescript gulp-typescript ts-node gulpclass</span><br></pre></td></tr></table></figure><blockquote><p>2、在项目根目录下创建一个名为 <strong>gulpfile.ts</strong> 的文件：</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Gulpclass, Task, SequenceTask, MergedTask &#125; from &quot;gulpclass&quot;;</span><br><span class="line"></span><br><span class="line">const gulp = require(&quot;gulp&quot;);</span><br><span class="line">const del = require(&quot;del&quot;);</span><br><span class="line">const sourcemaps = require(&quot;gulp-sourcemaps&quot;);</span><br><span class="line">const uglify = require(&apos;gulp-uglify&apos;);</span><br><span class="line">const ts = require(&quot;gulp-typescript&quot;);</span><br><span class="line"></span><br><span class="line">@Gulpclass()</span><br><span class="line">export class Gulpfile &#123;</span><br><span class="line">    @Task()</span><br><span class="line">    clean(cb: Function) &#123;</span><br><span class="line">        return del([&quot;./lib/**&quot;], cb);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Copies all sources to the package directory.</span><br><span class="line">     */</span><br><span class="line">    @MergedTask()</span><br><span class="line">    packageCompile() &#123;</span><br><span class="line">        const tsProject = ts.createProject(&quot;tsconfig.json&quot;, &#123; typescript: require(&quot;typescript&quot;) &#125;);</span><br><span class="line">        const tsResult = gulp.src([&quot;./src/**/*.ts&quot;, &quot;./node_modules/@types/**/*.ts&quot;])</span><br><span class="line">            .pipe(sourcemaps.init())</span><br><span class="line">            .pipe(tsProject());</span><br><span class="line"></span><br><span class="line">        return [</span><br><span class="line">            tsResult.dts.pipe(gulp.dest(&quot;./lib&quot;)),</span><br><span class="line">            tsResult.js</span><br><span class="line">                .pipe(uglify())</span><br><span class="line">                .pipe(sourcemaps.write(&quot;.&quot;, &#123; sourceRoot: &quot;&quot;, includeContent: true &#125;))</span><br><span class="line">                .pipe(gulp.dest(&quot;./lib&quot;))</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @SequenceTask()</span><br><span class="line">    package() &#123;</span><br><span class="line">        return [</span><br><span class="line">            &quot;clean&quot;,</span><br><span class="line">            &quot;packageCompile&quot;,</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>4、运行，以上面例子，输入下面命令即可运行</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp package</span><br></pre></td></tr></table></figure><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>在使用<strong>gulpfile.ts</strong>文件时，必须在项目的开发依赖（devDependencies）中安装<strong>ts-node</strong>模块，运行<code>gulp</code>命令时才能找到任务</p><ul><li><p>检查方法，在项目目录中输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp -v</span><br></pre></td></tr></table></figure><p><img src="/2018/12/06/gulp模块打包/./gulp模块打包/gulp版本.png" alt=""></p><p>显示以上内容及安装正确，如有错误则异常，需检查安装是否正确</p></li><li><p>运行<code>gulp package</code>出现<code>Task &#39;package&#39; is not in your gulpfile</code>，则检查gulp的相关依赖</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm list gulp gulp-typescript gulpclass ts-node</span><br></pre></td></tr></table></figure><p><img src="/2018/12/06/gulp模块打包/./gulp模块打包/typescript下gulp依赖版本.png" alt=""></p></li></ul></the></excerpt>]]></content>
+    
+    <summary type="html">
+    
+      &lt;excerpt in=&quot;&quot; index=&quot;&quot; |=&quot;&quot; 首页摘要=&quot;&quot;&gt;
+
+&lt;p&gt;  使用gulp打包工具打包npm模块；使用gulp-typescript打包以typescript编写的npm模块&lt;/p&gt;&lt;/excerpt&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://xiodra.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Gulp" scheme="http://xiodra.github.io/tags/Gulp/"/>
+    
+      <category term="打包" scheme="http://xiodra.github.io/tags/%E6%89%93%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>MongoDB 学习</title>
@@ -113,11 +139,11 @@
       <category term="工具" scheme="http://xiodra.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
+      <category term="安装" scheme="http://xiodra.github.io/tags/%E5%AE%89%E8%A3%85/"/>
+    
       <category term="VPS" scheme="http://xiodra.github.io/tags/VPS/"/>
     
       <category term="SSR" scheme="http://xiodra.github.io/tags/SSR/"/>
-    
-      <category term="安装" scheme="http://xiodra.github.io/tags/%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
