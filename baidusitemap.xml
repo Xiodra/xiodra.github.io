@@ -5,14 +5,21 @@
     
   <url>
     <loc>http://xiodra.github.io/2019/06/03/Docker-for-Windows-%E4%BD%BF%E7%94%A8-VMware-Workstation/</loc>
-    <lastmod>2019-06-03T07:34:24.263Z</lastmod>
+    <lastmod>2019-06-03T07:51:09.601Z</lastmod>
     <data>
         <display>
         <title>Docker for Windows 使用 VMware Workstation</title>
         <pubTime>2019-06-03T07:31:15.000Z</pubTime>
         
+        <tag>Docker</tag>
+         
+        <tag>安装</tag>
+         
          
            
+             
+              <breadCrumb title="学习" url="http://xiodra.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+          
         </display>
     </data>
     </url>
