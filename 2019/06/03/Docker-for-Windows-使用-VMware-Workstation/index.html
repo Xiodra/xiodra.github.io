@@ -24,11 +24,15 @@
 <meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Env.png">
 <meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/System-Env.png">
 <meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Success.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-IP.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Container-IP.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Route.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Mongo.png">
 <meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/VM.png">
 <meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/dev.png">
 <meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Login.png">
 <meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Logout.png">
-<meta property="og:updated_time" content="2019-06-03T07:54:19.965Z">
+<meta property="og:updated_time" content="2019-06-03T11:43:02.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker for Windows 使用 VMware Workstation">
 <meta name="twitter:description" content="window 10 使用Docker for window 并基于 VMware环境搭建文档。">
@@ -360,6 +364,15 @@
 <p>输入以下内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>保存，重启即可</p>
+<h1 id="容器之内网独立IP访问"><a href="#容器之内网独立IP访问" class="headerlink" title="容器之内网独立IP访问"></a>容器之内网独立IP访问</h1><p>通过执行命令<code>docker-machine ls</code>找到docker容器宿主机的ip地址<code>192.168.17.130</code></p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-IP.png" alt=" "></p>
+<p>进入某个Docker容器，执行命令<code>cat /etc/hosts</code>查看容器ip地址<code>172.17.0.3</code></p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Container-IP.png" alt=" "></p>
+<p>在物理机上以管理员原打开命令行，执行命令<code>route -p add 172.17.0.0 mask 255.255.255.0 192.168.17.130</code>，通过<code>route print 172.17.0.0</code>查看，效果如图</p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Route.png" alt=" "></p>
+<p>表示网段 <strong>172.17.0.0</strong> 的网段都经过 <strong>192.168.17.130</strong> 这个网关做路由，实现容器之内网独立IP访问。</p>
+<p>如 <strong>mongo</strong> 容器为例：</p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Mongo.png" alt=" "></p>
 <h1 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h1><p>因为我们使用的VM，所以我们在使用docker的时候，必须保证vm的dev示例是在运行的。</p>
 <p>配置dev开机后天启动</p>
 <p>新建一个 <strong>docker_dev_run.bat </strong>的文件，然后用编辑器打开，写下<code>&quot;C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe&quot; start &quot;C:\Users\Xiodra\.docker\machine\machines\dev\dev.vmx&quot; nogui</code>这行开启脚本。</p>
@@ -371,7 +384,6 @@
 <p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Login.png" alt=" "></p>
 <p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Logout.png" alt=" "></p>
 <p>此方法目前有个缺点，就是无法使用<strong>Docker for Windows</strong>的UI管理功能，但是这并不影响，通过命令我们可以完成所有的事情，所以我们在服务中，停止<strong>Docker Desktop Service</strong>，并且将其设为手动启动，避免每次开机就收到一个提示框。</p>
-<p>正文……</p>
 </excerpt>
       
     </div>
@@ -383,7 +395,7 @@
         <p><span>本文标题:</span><a  href="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/">Docker for Windows 使用 VMware Workstation</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Xiodra 的个人博客">Xiodra</a></p>
         <p><span>发布时间:</span>2019年06月03日 - 15时31分</p>
-        <p><span>最后更新:</span>2019年06月03日 - 15时54分</p>
+        <p><span>最后更新:</span>2019年06月03日 - 19时43分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/" title="Docker for Windows 使用 VMware Workstation">http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/</a>
             <span class="copy-path" data-clipboard-text="原文: http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/　　作者: Xiodra" title=""></span>
@@ -411,7 +423,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工作环境"><span class="toc-number">2.</span> <span class="toc-text">工作环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Docker-for-Windows"><span class="toc-number">3.</span> <span class="toc-text">安装Docker for Windows</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装以后的准备"><span class="toc-number">4.</span> <span class="toc-text">安装以后的准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#准备工作"><span class="toc-number">5.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载boot2docker-iso"><span class="toc-number">5.1.</span> <span class="toc-text">下载boot2docker.iso</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载-VMware-Workstation-驱动"><span class="toc-number">5.2.</span> <span class="toc-text">下载 VMware Workstation 驱动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Docker-Machine"><span class="toc-number">6.</span> <span class="toc-text">安装Docker Machine</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#打开VMware-Workstation"><span class="toc-number">6.1.</span> <span class="toc-text">打开VMware Workstation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装dev示例"><span class="toc-number">6.2.</span> <span class="toc-text">安装dev示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活实例"><span class="toc-number">6.3.</span> <span class="toc-text">激活实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置环境变量"><span class="toc-number">6.4.</span> <span class="toc-text">设置环境变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#验证是否安装成功"><span class="toc-number">7.</span> <span class="toc-text">验证是否安装成功</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置加速器"><span class="toc-number">8.</span> <span class="toc-text">配置加速器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#收尾工作"><span class="toc-number">9.</span> <span class="toc-text">收尾工作</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工作环境"><span class="toc-number">2.</span> <span class="toc-text">工作环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Docker-for-Windows"><span class="toc-number">3.</span> <span class="toc-text">安装Docker for Windows</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装以后的准备"><span class="toc-number">4.</span> <span class="toc-text">安装以后的准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#准备工作"><span class="toc-number">5.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载boot2docker-iso"><span class="toc-number">5.1.</span> <span class="toc-text">下载boot2docker.iso</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载-VMware-Workstation-驱动"><span class="toc-number">5.2.</span> <span class="toc-text">下载 VMware Workstation 驱动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Docker-Machine"><span class="toc-number">6.</span> <span class="toc-text">安装Docker Machine</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#打开VMware-Workstation"><span class="toc-number">6.1.</span> <span class="toc-text">打开VMware Workstation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装dev示例"><span class="toc-number">6.2.</span> <span class="toc-text">安装dev示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活实例"><span class="toc-number">6.3.</span> <span class="toc-text">激活实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置环境变量"><span class="toc-number">6.4.</span> <span class="toc-text">设置环境变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#验证是否安装成功"><span class="toc-number">7.</span> <span class="toc-text">验证是否安装成功</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置加速器"><span class="toc-number">8.</span> <span class="toc-text">配置加速器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#容器之内网独立IP访问"><span class="toc-number">9.</span> <span class="toc-text">容器之内网独立IP访问</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#收尾工作"><span class="toc-number">10.</span> <span class="toc-text">收尾工作</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
