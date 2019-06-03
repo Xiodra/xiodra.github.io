@@ -7,20 +7,32 @@
   
   
   
-  <title>SS（R）服务器搭建 | Xiodra</title>
+  <title>Docker for Windows 使用 VMware Workstation | Xiodra</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人收录的两种SS（R）服务搭建方法">
-<meta name="keywords" content="安装,VPS,SSR">
+  <meta name="description" content="window 10 使用Docker for window 并基于 VMware环境搭建文档。">
+<meta name="keywords" content="C#,.net,React,Typescript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SS（R）服务器搭建">
-<meta property="og:url" content="http://xiodra.github.io/2018/08/20/SS（R）服务器搭建/index.html">
+<meta property="og:title" content="Docker for Windows 使用 VMware Workstation">
+<meta property="og:url" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/index.html">
 <meta property="og:site_name" content="Xiodra">
-<meta property="og:description" content="个人收录的两种SS（R）服务搭建方法">
+<meta property="og:description" content="window 10 使用Docker for window 并基于 VMware环境搭建文档。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-15T15:44:21.496Z">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Hyper-V.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Dev.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/VM-Driver.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Install.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Env.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/System-Env.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Success.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/VM.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/dev.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Login.png">
+<meta property="og:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Logout.png">
+<meta property="og:updated_time" content="2019-06-03T07:34:24.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SS（R）服务器搭建">
-<meta name="twitter:description" content="个人收录的两种SS（R）服务搭建方法">
+<meta name="twitter:title" content="Docker for Windows 使用 VMware Workstation">
+<meta name="twitter:description" content="window 10 使用Docker for window 并基于 VMware环境搭建文档。">
+<meta name="twitter:image" content="http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Hyper-V.png">
   
     <link rel="alternative" href="/atom.xml" title="Xiodra" type="application/atom+xml">
   
@@ -265,11 +277,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-SS（R）服务器搭建" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Docker-for-Windows-使用-VMware-Workstation" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/08/20/SS（R）服务器搭建/" class="article-date">
-      <time datetime="2018-08-20T05:46:34.000Z" itemprop="datePublished">2018-08-20</time>
+      <a  href="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/" class="article-date">
+      <time datetime="2019-06-03T07:31:15.000Z" itemprop="datePublished">2019-06-03</time>
 </a>
 
     </div>
@@ -283,7 +295,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      SS（R）服务器搭建
+      Docker for Windows 使用 VMware Workstation
     </h1>
   
 
@@ -292,16 +304,8 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/工具/">工具</a>
-    </div>
-
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSR/">SSR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安装/">安装</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -311,40 +315,58 @@
           
         <excerpt in="" index="" |="" 首页摘要="">
 
-<p>  个人收录的两种SS（R）服务搭建方法</p>
+<p>window 10 使用Docker for window 并基于 VMware环境搭建文档。</p>
 <a id="more"></a>
-<the rest="" of="" contents="" |="" 余下全文="">
+<p align="center"><font size="24" face="黑体">Docker for Windows 使用 VMware Workstation</font></p>
 
-<h2 id="SS-R-服务搭建"><a href="#SS-R-服务搭建" class="headerlink" title="SS(R) 服务搭建"></a>SS(R) 服务搭建</h2><h3 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h3><ul>
-<li><p>Step 1：执行以下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</span><br><span class="line">chmod +x shadowsocksR.sh</span><br><span class="line">./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Step 2: 输入密码</p>
-</li>
-<li>Step 3：输入端口</li>
-<li>Step 4: 设置加密方式</li>
-<li>Step 5: 协议</li>
-<li>Step 6：插件</li>
-<li>Step 7: 重启</li>
-<li>卸载<code>./shadowsocks-go.sh uninstall</code></li>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>Docker for Windows</strong> 不同于 <strong>Docker Toolbox</strong>。<strong>Docker for Windows</strong> 对系统的要求至少为<strong>Windows 10</strong> <code>专业版</code>，因为它需要<strong>Hyper-V</strong>的支持，而<strong>Dockbox Toolbox</strong>使用<strong>Oracle Virtual Box</strong>而不是<strong>Hyper-V</strong>。使用过<strong>VMware WorkStation</strong>的朋友应该知道，vm无法与<strong>hyper-v</strong>共存。那么如果我的电脑已经安装和使用VM，如何才能使用<strong>Docker for Windows</strong>呢，请看下面的讲解。</p>
+<h1 id="工作环境"><a href="#工作环境" class="headerlink" title="工作环境"></a>工作环境</h1><ul>
+<li>操作系统：<strong>Window 10 企业版 LTSC</strong></li>
+<li>VMWare：<strong>VMware® Workstation 14 Pro</strong></li>
 </ul>
-<h3 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h3><ul>
-<li>Step 1：执行以下命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line">wget -N --no-check-certificate https://softs.fun/Bash/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure></p>
-<p>运行<code>bash ssr.sh</code>进入快捷管理界面</p>
-<ul>
-<li>Step 2: 按界面指令进行安装</li>
-</ul>
-<h3 id="一键加速VPS服务器"><a href="#一键加速VPS服务器" class="headerlink" title="一键加速VPS服务器"></a>一键加速VPS服务器</h3><ul>
-<li><p>Step 1: 执行命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Step 2: 重启</p>
-</li>
-</ul>
-</the></excerpt>
+<h1 id="安装Docker-for-Windows"><a href="#安装Docker-for-Windows" class="headerlink" title="安装Docker for Windows"></a>安装Docker for Windows</h1><p>从这个地址下载并进行安装：<a href="https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe" target="_blank" rel="noopener">下载地址</a></p>
+<p>安装过程很简单，在此我就不赘述了。</p>
+<h1 id="安装以后的准备"><a href="#安装以后的准备" class="headerlink" title="安装以后的准备"></a>安装以后的准备</h1><p>安装完成以后，Docker for Windows 会自动运行，此时会出现提示没有启用Hyper-V，这里点击canel即可。</p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Hyper-V.png" alt=" "></p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="下载boot2docker-iso"><a href="#下载boot2docker-iso" class="headerlink" title="下载boot2docker.iso"></a>下载<strong>boot2docker.iso</strong></h2><p>从这个地址下载: <a href="https://github.com/boot2docker/boot2docker/releases" target="_blank" rel="noopener">下载地址</a></p>
+<p>然后将 <strong>boot2docker.iso</strong> 放在 C:\Users\&lt;用户名&gt;.docker\machine\cache\，文件夹不存在就自己建立。<br><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Dev.png" alt=" "></p>
+<h2 id="下载-VMware-Workstation-驱动"><a href="#下载-VMware-Workstation-驱动" class="headerlink" title="下载 VMware Workstation 驱动"></a>下载 <strong>VMware Workstation</strong> 驱动</h2><p>从这里下载 <a href="https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/" target="_blank" rel="noopener">下载地址</a> 最新版的vm驱动。此驱动非官方开发，但是也在官方的文档中有链接。</p>
+<p>然后将 <strong>docker-machine-driver-vmwareworkstation.exe</strong> 复制到 <strong>C:\Program Files\Docker\Docker\resources\bin</strong> 下：</p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/VM-Driver.png" alt=" "></p>
+<h1 id="安装Docker-Machine"><a href="#安装Docker-Machine" class="headerlink" title="安装Docker Machine"></a>安装<strong>Docker Machine</strong></h1><h2 id="打开VMware-Workstation"><a href="#打开VMware-Workstation" class="headerlink" title="打开VMware Workstation"></a>打开<strong>VMware Workstation</strong></h2><p>这一步是必须的！VM版本必须大于10。</p>
+<h2 id="安装dev示例"><a href="#安装dev示例" class="headerlink" title="安装dev示例"></a>安装<code>dev</code>示例</h2><p>打开cmd，执行命令</p>
+<p><code>docker-machine create --driver=vmwareworkstation dev</code></p>
+<p>验证安装，执行命令</p>
+<p><code>docker-machine ls</code></p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Install.png" alt=" "></p>
+<h2 id="激活实例"><a href="#激活实例" class="headerlink" title="激活实例"></a>激活实例</h2><p>执行命令：</p>
+<p><code>docker-machine env dev</code></p>
+<p>会出现如下图：</p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Env.png" alt=" "> </p>
+<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><p>打开环境变量设置，对于上步中的提示设置系统环境变量：</p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/System-Env.png" alt=" "></p>
+<h1 id="验证是否安装成功"><a href="#验证是否安装成功" class="headerlink" title="验证是否安装成功"></a>验证是否安装成功</h1><p>使用命令登录</p>
+<p><code>docker-machine ssh dev</code></p>
+<p>出现如下图表示安装成功</p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Docker-Success.png" alt=" "></p>
+<h1 id="配置加速器"><a href="#配置加速器" class="headerlink" title="配置加速器"></a>配置加速器</h1><p>通过命令登录docker-machine</p>
+<p>新建文件 <code>vi /etc/docker/daemon.json</code></p>
+<p>输入以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>保存，重启即可</p>
+<h1 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h1><p>因为我们使用的VM，所以我们在使用docker的时候，必须保证vm的dev示例是在运行的。</p>
+<p>配置dev开机后天启动</p>
+<p>新建一个 <strong>docker_dev_run.bat </strong>的文件，然后用编辑器打开，写下<code>&quot;C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe&quot; start &quot;C:\Users\Xiodra\.docker\machine\machines\dev\dev.vmx&quot; nogui</code>这行开启脚本。</p>
+<p><strong><p style="color:red">注：start前面部分是你VMware的安装路径，后面到nogui部分是你Linux系统文件路径。</p></strong></p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/VM.png" alt=" "></p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/dev.png" alt=" "></p>
+<p>然后，我们再建一个 docker_dev_stop.bat 的文件，写下 <code>&quot;C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe&quot; stop &quot;C:\Users\Xiodra\.docker\machine\machines\dev\dev.vmx&quot; soft</code> 脚本,路径和刚才的一样。</p>
+<p>接下来，我们就可以往Windows的 <strong>脚本(登录/注销)</strong> 添加了，<code>运行 &gt; gpedit.msc &gt; 用户配置 &gt; windows设置 &gt; 脚本(登录/注销)</code></p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Login.png" alt=" "></p>
+<p><img src="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/Logout.png" alt=" "></p>
+<p>此方法目前有个缺点，就是无法使用<strong>Docker for Windows</strong>的UI管理功能，但是这并不影响，通过命令我们可以完成所有的事情，所以我们在服务中，停止<strong>Docker Desktop Service</strong>，并且将其设为手动启动，避免每次开机就收到一个提示框。</p>
+<p>正文……</p>
+</excerpt>
       
     </div>
     
@@ -352,13 +374,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2018/08/20/SS（R）服务器搭建/">SS（R）服务器搭建</a></p>
+        <p><span>本文标题:</span><a  href="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/">Docker for Windows 使用 VMware Workstation</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Xiodra 的个人博客">Xiodra</a></p>
-        <p><span>发布时间:</span>2018年08月20日 - 13时46分</p>
-        <p><span>最后更新:</span>2018年11月15日 - 23时44分</p>
+        <p><span>发布时间:</span>2019年06月03日 - 15时31分</p>
+        <p><span>最后更新:</span>2019年06月03日 - 15时34分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/20/SS（R）服务器搭建/" title="SS（R）服务器搭建">http://xiodra.github.io/2018/08/20/SS（R）服务器搭建/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://xiodra.github.io/2018/08/20/SS（R）服务器搭建/　　作者: Xiodra" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/" title="Docker for Windows 使用 VMware Workstation">http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://xiodra.github.io/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/　　作者: Xiodra" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -369,18 +391,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2018/08/20/React-native-学习/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          React-native 学习
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2018/08/20/node-js安装/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">node.js安装</div>
+    <a  href="/2018/12/10/CSS模块化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS模块化</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -392,7 +405,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SS-R-服务搭建"><span class="toc-number">1.</span> <span class="toc-text">SS(R) 服务搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一种"><span class="toc-number">1.1.</span> <span class="toc-text">第一种</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二种"><span class="toc-number">1.2.</span> <span class="toc-text">第二种</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一键加速VPS服务器"><span class="toc-number">1.3.</span> <span class="toc-text">一键加速VPS服务器</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工作环境"><span class="toc-number">2.</span> <span class="toc-text">工作环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Docker-for-Windows"><span class="toc-number">3.</span> <span class="toc-text">安装Docker for Windows</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装以后的准备"><span class="toc-number">4.</span> <span class="toc-text">安装以后的准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#准备工作"><span class="toc-number">5.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载boot2docker-iso"><span class="toc-number">5.1.</span> <span class="toc-text">下载boot2docker.iso</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载-VMware-Workstation-驱动"><span class="toc-number">5.2.</span> <span class="toc-text">下载 VMware Workstation 驱动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Docker-Machine"><span class="toc-number">6.</span> <span class="toc-text">安装Docker Machine</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#打开VMware-Workstation"><span class="toc-number">6.1.</span> <span class="toc-text">打开VMware Workstation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装dev示例"><span class="toc-number">6.2.</span> <span class="toc-text">安装dev示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活实例"><span class="toc-number">6.3.</span> <span class="toc-text">激活实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置环境变量"><span class="toc-number">6.4.</span> <span class="toc-text">设置环境变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#验证是否安装成功"><span class="toc-number">7.</span> <span class="toc-text">验证是否安装成功</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置加速器"><span class="toc-number">8.</span> <span class="toc-text">配置加速器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#收尾工作"><span class="toc-number">9.</span> <span class="toc-text">收尾工作</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -441,13 +454,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2018/08/20/React-native-学习/" title="上一篇: React-native 学习">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2018/08/20/node-js安装/" title="下一篇: node.js安装">
+            <a  href="/2018/12/10/CSS模块化/" title="下一篇: CSS模块化">
                 <i class="fa fa-angle-right"></i>
             </a>
         
