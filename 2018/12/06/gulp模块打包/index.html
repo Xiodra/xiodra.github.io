@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>gulp模块打包 | Xiodra</title><meta name="keywords" content="Gulp,打包"><meta name="author" content="Xiodra"><meta name="copyright" content="Xiodra"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="使用gulp打包工具打包npm模块；使用gulp-typescript打包以typescript编写的npm模块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp模块打包">
+<meta property="og:url" content="http://xiodra.github.io/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/index.html">
+<meta property="og:site_name" content="Xiodra">
+<meta property="og:description" content="使用gulp打包工具打包npm模块；使用gulp-typescript打包以typescript编写的npm模块">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2018-12-06T07:48:33.000Z">
+<meta property="article:modified_time" content="2021-03-27T06:32:55.080Z">
+<meta property="article:author" content="Xiodra">
+<meta property="article:tag" content="Gulp">
+<meta property="article:tag" content="打包">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/avatar.jpg"><link rel="canonical" href="http://xiodra.github.io/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-9030171270965721',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-27 14:32:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Xiodra</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">gulp模块打包</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-12-06T07:48:33.000Z" title="发表于 2018-12-06 15:48:33">2018-12-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-27T06:32:55.080Z" title="更新于 2021-03-27 14:32:55">2021-03-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="gulp模块打包"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><Excerpt in index | 首页摘要>
+
+<p>  使用gulp打包工具打包npm模块；使用gulp-typescript打包以typescript编写的npm模块</p>
+<span id="more"></span>
+<The rest of contents | 余下全文>
+
+<h1 id="使用Gulp进行模块打包"><a href="#使用Gulp进行模块打包" class="headerlink" title="使用Gulp进行模块打包"></a>使用Gulp进行模块打包</h1><h2 id="中文技术文档"><a href="#中文技术文档" class="headerlink" title="中文技术文档"></a>中文技术文档</h2><p><a target="_blank" rel="noopener" href="https://www.gulpjs.com.cn/">gulp-js</a></p>
+<h2 id="入门指南"><a href="#入门指南" class="headerlink" title="入门指南"></a>入门指南</h2><blockquote>
+<p>1、全局安装 gulp：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --global gulp</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2、作为项目的开发依赖（<strong>devDependencies</strong>）安装：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>3、在项目根目录下创建一个名为 <strong>gulpfile.js</strong> 的文件：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var gulp &#x3D; require(&#39;gulp&#39;);</span><br><span class="line"></span><br><span class="line">gulp.task(&#39;default&#39;, function() &#123;</span><br><span class="line">  &#x2F;&#x2F; 将你的默认的任务代码放在这</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="使用typescript语言"><a href="#使用typescript语言" class="headerlink" title="使用typescript语言"></a>使用typescript语言</h2><blockquote>
+<p>1、除以上安装模块，还必须在项目的开发依赖（devDependencies）安装：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev typescript gulp-typescript ts-node gulpclass</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2、在项目根目录下创建一个名为 <strong>gulpfile.ts</strong> 的文件：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Gulpclass, Task, SequenceTask, MergedTask &#125; from &quot;gulpclass&quot;;</span><br><span class="line"></span><br><span class="line">const gulp &#x3D; require(&quot;gulp&quot;);</span><br><span class="line">const del &#x3D; require(&quot;del&quot;);</span><br><span class="line">const sourcemaps &#x3D; require(&quot;gulp-sourcemaps&quot;);</span><br><span class="line">const uglify &#x3D; require(&#39;gulp-uglify&#39;);</span><br><span class="line">const ts &#x3D; require(&quot;gulp-typescript&quot;);</span><br><span class="line"></span><br><span class="line">@Gulpclass()</span><br><span class="line">export class Gulpfile &#123;</span><br><span class="line">    @Task()</span><br><span class="line">    clean(cb: Function) &#123;</span><br><span class="line">        return del([&quot;.&#x2F;lib&#x2F;**&quot;], cb);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Copies all sources to the package directory.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @MergedTask()</span><br><span class="line">    packageCompile() &#123;</span><br><span class="line">        const tsProject &#x3D; ts.createProject(&quot;tsconfig.json&quot;, &#123; typescript: require(&quot;typescript&quot;) &#125;);</span><br><span class="line">        const tsResult &#x3D; gulp.src([&quot;.&#x2F;src&#x2F;**&#x2F;*.ts&quot;, &quot;.&#x2F;node_modules&#x2F;@types&#x2F;**&#x2F;*.ts&quot;])</span><br><span class="line">            .pipe(sourcemaps.init())</span><br><span class="line">            .pipe(tsProject());</span><br><span class="line"></span><br><span class="line">        return [</span><br><span class="line">            tsResult.dts.pipe(gulp.dest(&quot;.&#x2F;lib&quot;)),</span><br><span class="line">            tsResult.js</span><br><span class="line">                .pipe(uglify())</span><br><span class="line">                .pipe(sourcemaps.write(&quot;.&quot;, &#123; sourceRoot: &quot;&quot;, includeContent: true &#125;))</span><br><span class="line">                .pipe(gulp.dest(&quot;.&#x2F;lib&quot;))</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @SequenceTask()</span><br><span class="line">    package() &#123;</span><br><span class="line">        return [</span><br><span class="line">            &quot;clean&quot;,</span><br><span class="line">            &quot;packageCompile&quot;,</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>4、运行，以上面例子，输入下面命令即可运行</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp package</span><br></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>在使用<strong>gulpfile.ts</strong>文件时，必须在项目的开发依赖（devDependencies）中安装<strong>ts-node</strong>模块，运行<code>gulp</code>命令时才能找到任务</p>
+<ul>
+<li><p>检查方法，在项目目录中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp -v</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/gulp模块打包/gulp版本.png" alt></p>
+<p>显示以上内容及安装正确，如有错误则异常，需检查安装是否正确</p>
+</li>
+<li><p>运行<code>gulp package</code>出现<code>Task &#39;package&#39; is not in your gulpfile</code>，则检查gulp的相关依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm list gulp gulp-typescript gulpclass ts-node</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/gulp模块打包/typescript下gulp依赖版本.png" alt></p>
+</li>
+</ul>
+</The></Excerpt></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Xiodra</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://xiodra.github.io/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/">http://xiodra.github.io/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://xiodra.github.io" target="_blank">Xiodra</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Gulp/">Gulp</a><a class="post-meta__tags" href="/tags/%E6%89%93%E5%8C%85/">打包</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2018/12/07/%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83NPM%E6%A8%A1%E5%9D%97%EF%BC%88typescript%EF%BC%89/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">如何发布NPM模块（typescript）</div></div></a></div><div class="next-post pull-right"><a href="/2018/08/20/MongoDB-%E5%AD%A6%E4%B9%A0/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MongoDB 学习</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Xiodra</div><div class="author-info__description">对于每一项技术都快速掌握，但是离全栈工程师还有很大差距；现在在react技术上打磨中...</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">如果你在使用中遇到問題，請到 <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly/issues" style="color:#49b1f5">Github Issues</a> 或者 <a href="/messageboard/" style="color:#49b1f5">留言板</a> 進行反饋，你也可以加入 QQ 群（由於 QQ 群只能有500人，會定時清理潛水的人）<div class="social-button"> <a class="button--animated" href="https://t.me/bu2fly" target="_blank">Telegram 👍</a> </div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Gulp%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">使用Gulp进行模块打包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3"><span class="toc-number">1.1.</span> <span class="toc-text">中文技术文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97"><span class="toc-number">1.2.</span> <span class="toc-text">入门指南</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8typescript%E8%AF%AD%E8%A8%80"><span class="toc-number">1.3.</span> <span class="toc-text">使用typescript语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">1.4.</span> <span class="toc-text">注意</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2019/06/03/Docker-for-Windows-%E4%BD%BF%E7%94%A8-VMware-Workstation/" title="Docker for Windows 使用 VMware Workstation"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker for Windows 使用 VMware Workstation"/></a><div class="content"><a class="title" href="/2019/06/03/Docker-for-Windows-%E4%BD%BF%E7%94%A8-VMware-Workstation/" title="Docker for Windows 使用 VMware Workstation">Docker for Windows 使用 VMware Workstation</a><time datetime="2019-06-03T07:31:15.000Z" title="发表于 2019-06-03 15:31:15">2019-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/12/10/CSS%E6%A8%A1%E5%9D%97%E5%8C%96/" title="CSS模块化"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS模块化"/></a><div class="content"><a class="title" href="/2018/12/10/CSS%E6%A8%A1%E5%9D%97%E5%8C%96/" title="CSS模块化">CSS模块化</a><time datetime="2018-12-10T02:16:57.000Z" title="发表于 2018-12-10 10:16:57">2018-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/12/07/%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83NPM%E6%A8%A1%E5%9D%97%EF%BC%88typescript%EF%BC%89/" title="如何发布NPM模块（typescript）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何发布NPM模块（typescript）"/></a><div class="content"><a class="title" href="/2018/12/07/%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83NPM%E6%A8%A1%E5%9D%97%EF%BC%88typescript%EF%BC%89/" title="如何发布NPM模块（typescript）">如何发布NPM模块（typescript）</a><time datetime="2018-12-07T03:22:10.000Z" title="发表于 2018-12-07 11:22:10">2018-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/" title="gulp模块打包"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="gulp模块打包"/></a><div class="content"><a class="title" href="/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/" title="gulp模块打包">gulp模块打包</a><time datetime="2018-12-06T07:48:33.000Z" title="发表于 2018-12-06 15:48:33">2018-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/08/20/MongoDB-%E5%AD%A6%E4%B9%A0/" title="MongoDB 学习"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MongoDB 学习"/></a><div class="content"><a class="title" href="/2018/08/20/MongoDB-%E5%AD%A6%E4%B9%A0/" title="MongoDB 学习">MongoDB 学习</a><time datetime="2018-08-20T07:46:25.000Z" title="发表于 2018-08-20 15:46:25">2018-08-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Xiodra</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>node.js安装 | Xiodra</title><meta name="keywords" content="安装,node.js"><meta name="author" content="Xiodra"><meta name="copyright" content="Xiodra"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文主要介绍的是在windows 10下采用nvm进行安装node.js。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node.js安装">
+<meta property="og:url" content="http://xiodra.github.io/2018/08/20/node-js%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="Xiodra">
+<meta property="og:description" content="本文主要介绍的是在windows 10下采用nvm进行安装node.js。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2018-08-20T00:50:52.000Z">
+<meta property="article:modified_time" content="2021-03-27T06:32:55.082Z">
+<meta property="article:author" content="Xiodra">
+<meta property="article:tag" content="安装">
+<meta property="article:tag" content="node.js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/avatar.jpg"><link rel="canonical" href="http://xiodra.github.io/2018/08/20/node-js%E5%AE%89%E8%A3%85/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-9030171270965721',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-27 14:32:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Xiodra</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">node.js安装</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-08-20T00:50:52.000Z" title="发表于 2018-08-20 08:50:52">2018-08-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-27T06:32:55.082Z" title="更新于 2021-03-27 14:32:55">2021-03-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="node.js安装"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><Excerpt in index | 首页摘要>
+
+<p>  本文主要介绍的是在windows 10下采用nvm进行安装node.js。</p>
+<span id="more"></span>
+<The rest of contents | 余下全文>
+
+<h3 id="1-NVM-Windows-安装"><a href="#1-NVM-Windows-安装" class="headerlink" title="1. NVM-Windows 安装"></a>1. NVM-Windows 安装</h3><p>  <strong><a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">下载地址</a></strong></p>
+<ul>
+<li><p>在官网中下载最新版本的<code>nvm-noinstall.zip</code>,并解压至<code>C:\dev\nvm</code>目录下</p>
+</li>
+<li><p>以管理员身份打开<code>C:\dev\nvm</code>目录下的<code>install.cmd</code>文件,直接回车即可,然后在<code>C:\</code>目录下会出现<code>setting.text</code>文件,把该文件拷贝至<code>C:\dev\nvm</code>目录,并且将内容改成一下内容保存即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root: C:\dev\nvm </span><br><span class="line">path: C:\dev\nodejs </span><br><span class="line">arch: 64 </span><br><span class="line">proxy: none </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后我配置环境变量，因为刚刚点击了<code>install.cmd</code>的文件，那么会在环境变量的系统变量中，生成两个环境变量：<code>NVM_HOME</code> 和 <code>NVM_SYMLINK</code> 我们开始修改这两个变量名的变量值：<code>NVM_HOME</code>的变量值为：<code>C:\dev\nvm</code>;<code>NVM_SYMLINK</code>的变量值为：<code>C:\dev\nodejs</code></p>
+</li>
+<li><p>我们还会发现，在<strong>Path</strong>中也会自动添加上<code>C:\dev\nvm;</code>或者是<code>C:\dev\nodejs</code>，如果有的话，把他们删掉，没有的话更好，我们自己来配置，在Path的最前面输入： <code>;%NVM_HOME%;%NVM_SYMLINK%;</code></p>
+</li>
+<li><p>打开一个cmd窗口输入命令：<code>nvm v</code>，那么我们会看到当前nvm的版本信息。然后我们可以安装nodejs了。</p>
+<p><strong><font color="red">PS&nbsp;以上目录可根据实际情况选择</font></strong></p>
+</li>
+</ul>
+<h3 id="2-nvm-node-js安装"><a href="#2-nvm-node-js安装" class="headerlink" title="2. nvm node.js安装"></a>2. nvm node.js安装</h3><ul>
+<li><p>安装node：<code>nvm install latest</code>或者<code>nvm install 8.9.1 (32-bit)</code>默认<strong>64-bit</strong></p>
+</li>
+<li><p>查看node所有版本:<code>nvm list available</code></p>
+</li>
+<li><p>查看当前系统node版本:<code>nvm list</code></p>
+</li>
+<li><p>切换版本：<code>nvm use 8.9.1</code></p>
+</li>
+</ul>
+</The></Excerpt></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Xiodra</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://xiodra.github.io/2018/08/20/node-js%E5%AE%89%E8%A3%85/">http://xiodra.github.io/2018/08/20/node-js%E5%AE%89%E8%A3%85/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://xiodra.github.io" target="_blank">Xiodra</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AE%89%E8%A3%85/">安装</a><a class="post-meta__tags" href="/tags/node-js/">node.js</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2018/08/20/SS%EF%BC%88R%EF%BC%89%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SS（R）服务器搭建</div></div></a></div><div class="next-post pull-right"><a href="/2018/08/17/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%B4%E6%98%8E/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">git常用命令说明</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2019/06/03/Docker-for-Windows-使用-VMware-Workstation/" title="Docker for Windows 使用 VMware Workstation"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-06-03</div><div class="title">Docker for Windows 使用 VMware Workstation</div></div></a></div><div><a href="/2018/08/20/React-native-学习/" title="React-native 学习"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-08-20</div><div class="title">React-native 学习</div></div></a></div><div><a href="/2018/08/20/SS（R）服务器搭建/" title="SS（R）服务器搭建"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-08-20</div><div class="title">SS（R）服务器搭建</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Xiodra</div><div class="author-info__description">对于每一项技术都快速掌握，但是离全栈工程师还有很大差距；现在在react技术上打磨中...</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">如果你在使用中遇到問題，請到 <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly/issues" style="color:#49b1f5">Github Issues</a> 或者 <a href="/messageboard/" style="color:#49b1f5">留言板</a> 進行反饋，你也可以加入 QQ 群（由於 QQ 群只能有500人，會定時清理潛水的人）<div class="social-button"> <a class="button--animated" href="https://t.me/bu2fly" target="_blank">Telegram 👍</a> </div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-NVM-Windows-%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">1. NVM-Windows 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-nvm-node-js%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">2. nvm node.js安装</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2019/06/03/Docker-for-Windows-%E4%BD%BF%E7%94%A8-VMware-Workstation/" title="Docker for Windows 使用 VMware Workstation"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker for Windows 使用 VMware Workstation"/></a><div class="content"><a class="title" href="/2019/06/03/Docker-for-Windows-%E4%BD%BF%E7%94%A8-VMware-Workstation/" title="Docker for Windows 使用 VMware Workstation">Docker for Windows 使用 VMware Workstation</a><time datetime="2019-06-03T07:31:15.000Z" title="发表于 2019-06-03 15:31:15">2019-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/12/10/CSS%E6%A8%A1%E5%9D%97%E5%8C%96/" title="CSS模块化"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS模块化"/></a><div class="content"><a class="title" href="/2018/12/10/CSS%E6%A8%A1%E5%9D%97%E5%8C%96/" title="CSS模块化">CSS模块化</a><time datetime="2018-12-10T02:16:57.000Z" title="发表于 2018-12-10 10:16:57">2018-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/12/07/%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83NPM%E6%A8%A1%E5%9D%97%EF%BC%88typescript%EF%BC%89/" title="如何发布NPM模块（typescript）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何发布NPM模块（typescript）"/></a><div class="content"><a class="title" href="/2018/12/07/%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83NPM%E6%A8%A1%E5%9D%97%EF%BC%88typescript%EF%BC%89/" title="如何发布NPM模块（typescript）">如何发布NPM模块（typescript）</a><time datetime="2018-12-07T03:22:10.000Z" title="发表于 2018-12-07 11:22:10">2018-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/" title="gulp模块打包"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="gulp模块打包"/></a><div class="content"><a class="title" href="/2018/12/06/gulp%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85/" title="gulp模块打包">gulp模块打包</a><time datetime="2018-12-06T07:48:33.000Z" title="发表于 2018-12-06 15:48:33">2018-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2018/08/20/MongoDB-%E5%AD%A6%E4%B9%A0/" title="MongoDB 学习"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MongoDB 学习"/></a><div class="content"><a class="title" href="/2018/08/20/MongoDB-%E5%AD%A6%E4%B9%A0/" title="MongoDB 学习">MongoDB 学习</a><time datetime="2018-08-20T07:46:25.000Z" title="发表于 2018-08-20 15:46:25">2018-08-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Xiodra</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
