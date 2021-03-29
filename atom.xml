@@ -5,9 +5,9 @@
   <subtitle>Code is far away from bug with the animal protecting！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://xiodra.github.io/"/>
+  <link href="https://xiodra.tk/"/>
   <updated>2021-03-29T01:47:55.512Z</updated>
-  <id>http://xiodra.github.io/</id>
+  <id>https://xiodra.tk/</id>
   
   <author>
     <name>Xiodra</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Docker for Windows 使用 VMware Workstation</title>
-    <link href="http://xiodra.github.io/posts/d8072310/"/>
-    <id>http://xiodra.github.io/posts/d8072310/</id>
+    <link href="https://xiodra.tk/posts/d8072310/"/>
+    <id>https://xiodra.tk/posts/d8072310/</id>
     <published>2019-06-03T07:31:15.000Z</published>
     <updated>2021-03-29T01:47:55.512Z</updated>
     
@@ -34,19 +34,19 @@
     
     </summary>
     
-      <category term="学习" scheme="http://xiodra.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="https://xiodra.tk/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="Docker" scheme="http://xiodra.github.io/tags/Docker/"/>
+      <category term="Docker" scheme="https://xiodra.tk/tags/Docker/"/>
     
-      <category term="安装" scheme="http://xiodra.github.io/tags/%E5%AE%89%E8%A3%85/"/>
+      <category term="安装" scheme="https://xiodra.tk/tags/%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
   <entry>
     <title>CSS模块化</title>
-    <link href="http://xiodra.github.io/posts/30f4ba73/"/>
-    <id>http://xiodra.github.io/posts/30f4ba73/</id>
+    <link href="https://xiodra.tk/posts/30f4ba73/"/>
+    <id>https://xiodra.tk/posts/30f4ba73/</id>
     <published>2018-12-10T02:16:57.000Z</published>
     <updated>2021-03-29T01:47:55.512Z</updated>
     
@@ -61,19 +61,19 @@
     
     </summary>
     
-      <category term="学习" scheme="http://xiodra.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="https://xiodra.tk/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="CSS" scheme="http://xiodra.github.io/tags/CSS/"/>
+      <category term="CSS" scheme="https://xiodra.tk/tags/CSS/"/>
     
-      <category term="前端" scheme="http://xiodra.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://xiodra.tk/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>如何发布NPM模块（typescript）</title>
-    <link href="http://xiodra.github.io/posts/4512cdc4/"/>
-    <id>http://xiodra.github.io/posts/4512cdc4/</id>
+    <link href="https://xiodra.tk/posts/4512cdc4/"/>
+    <id>https://xiodra.tk/posts/4512cdc4/</id>
     <published>2018-12-07T03:22:10.000Z</published>
     <updated>2021-03-29T01:47:55.512Z</updated>
     
@@ -88,21 +88,21 @@
     
     </summary>
     
-      <category term="开发" scheme="http://xiodra.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://xiodra.tk/categories/%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="NPM" scheme="http://xiodra.github.io/tags/NPM/"/>
+      <category term="NPM" scheme="https://xiodra.tk/tags/NPM/"/>
     
-      <category term="Node Module" scheme="http://xiodra.github.io/tags/Node-Module/"/>
+      <category term="Node Module" scheme="https://xiodra.tk/tags/Node-Module/"/>
     
-      <category term="Typescript" scheme="http://xiodra.github.io/tags/Typescript/"/>
+      <category term="Typescript" scheme="https://xiodra.tk/tags/Typescript/"/>
     
   </entry>
   
   <entry>
     <title>gulp模块打包</title>
-    <link href="http://xiodra.github.io/posts/33105f49/"/>
-    <id>http://xiodra.github.io/posts/33105f49/</id>
+    <link href="https://xiodra.tk/posts/33105f49/"/>
+    <id>https://xiodra.tk/posts/33105f49/</id>
     <published>2018-12-06T07:48:33.000Z</published>
     <updated>2021-03-29T01:47:55.512Z</updated>
     
@@ -117,19 +117,19 @@
     
     </summary>
     
-      <category term="工具" scheme="http://xiodra.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://xiodra.tk/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="Gulp" scheme="http://xiodra.github.io/tags/Gulp/"/>
+      <category term="Gulp" scheme="https://xiodra.tk/tags/Gulp/"/>
     
-      <category term="打包" scheme="http://xiodra.github.io/tags/%E6%89%93%E5%8C%85/"/>
+      <category term="打包" scheme="https://xiodra.tk/tags/%E6%89%93%E5%8C%85/"/>
     
   </entry>
   
   <entry>
     <title>MongoDB 学习</title>
-    <link href="http://xiodra.github.io/posts/5a6465fb/"/>
-    <id>http://xiodra.github.io/posts/5a6465fb/</id>
+    <link href="https://xiodra.tk/posts/5a6465fb/"/>
+    <id>https://xiodra.tk/posts/5a6465fb/</id>
     <published>2018-08-20T07:46:25.000Z</published>
     <updated>2021-03-29T01:47:55.512Z</updated>
     
@@ -144,17 +144,17 @@
     
     </summary>
     
-      <category term="学习" scheme="http://xiodra.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="https://xiodra.tk/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="MongoDB" scheme="http://xiodra.github.io/tags/MongoDB/"/>
+      <category term="MongoDB" scheme="https://xiodra.tk/tags/MongoDB/"/>
     
   </entry>
   
   <entry>
     <title>React-native 学习</title>
-    <link href="http://xiodra.github.io/posts/fa532f8b/"/>
-    <id>http://xiodra.github.io/posts/fa532f8b/</id>
+    <link href="https://xiodra.tk/posts/fa532f8b/"/>
+    <id>https://xiodra.tk/posts/fa532f8b/</id>
     <published>2018-08-20T05:53:38.000Z</published>
     <updated>2021-03-29T01:47:55.512Z</updated>
     
@@ -169,19 +169,19 @@
     
     </summary>
     
-      <category term="学习" scheme="http://xiodra.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="https://xiodra.tk/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="安装" scheme="http://xiodra.github.io/tags/%E5%AE%89%E8%A3%85/"/>
+      <category term="安装" scheme="https://xiodra.tk/tags/%E5%AE%89%E8%A3%85/"/>
     
-      <category term="React Native" scheme="http://xiodra.github.io/tags/React-Native/"/>
+      <category term="React Native" scheme="https://xiodra.tk/tags/React-Native/"/>
     
   </entry>
   
   <entry>
     <title>SS（R）服务器搭建</title>
-    <link href="http://xiodra.github.io/posts/30a3e016/"/>
-    <id>http://xiodra.github.io/posts/30a3e016/</id>
+    <link href="https://xiodra.tk/posts/30a3e016/"/>
+    <id>https://xiodra.tk/posts/30a3e016/</id>
     <published>2018-08-20T05:46:34.000Z</published>
     <updated>2021-03-29T01:47:55.512Z</updated>
     
@@ -196,21 +196,21 @@
     
     </summary>
     
-      <category term="工具" scheme="http://xiodra.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://xiodra.tk/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="安装" scheme="http://xiodra.github.io/tags/%E5%AE%89%E8%A3%85/"/>
+      <category term="安装" scheme="https://xiodra.tk/tags/%E5%AE%89%E8%A3%85/"/>
     
-      <category term="VPS" scheme="http://xiodra.github.io/tags/VPS/"/>
+      <category term="VPS" scheme="https://xiodra.tk/tags/VPS/"/>
     
-      <category term="SSR" scheme="http://xiodra.github.io/tags/SSR/"/>
+      <category term="SSR" scheme="https://xiodra.tk/tags/SSR/"/>
     
   </entry>
   
   <entry>
     <title>node.js安装</title>
-    <link href="http://xiodra.github.io/posts/63a2d85/"/>
-    <id>http://xiodra.github.io/posts/63a2d85/</id>
+    <link href="https://xiodra.tk/posts/63a2d85/"/>
+    <id>https://xiodra.tk/posts/63a2d85/</id>
     <published>2018-08-20T00:50:52.000Z</published>
     <updated>2021-03-29T01:47:55.512Z</updated>
     
@@ -225,19 +225,19 @@
     
     </summary>
     
-      <category term="工具" scheme="http://xiodra.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://xiodra.tk/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="安装" scheme="http://xiodra.github.io/tags/%E5%AE%89%E8%A3%85/"/>
+      <category term="安装" scheme="https://xiodra.tk/tags/%E5%AE%89%E8%A3%85/"/>
     
-      <category term="node.js" scheme="http://xiodra.github.io/tags/node-js/"/>
+      <category term="node.js" scheme="https://xiodra.tk/tags/node-js/"/>
     
   </entry>
   
   <entry>
     <title>git常用命令说明</title>
-    <link href="http://xiodra.github.io/posts/51566bcc/"/>
-    <id>http://xiodra.github.io/posts/51566bcc/</id>
+    <link href="https://xiodra.tk/posts/51566bcc/"/>
+    <id>https://xiodra.tk/posts/51566bcc/</id>
     <published>2018-08-17T04:43:55.000Z</published>
     <updated>2021-03-29T01:47:55.512Z</updated>
     
@@ -255,12 +255,12 @@
     
     </summary>
     
-      <category term="工具" scheme="http://xiodra.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://xiodra.tk/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="Git" scheme="http://xiodra.github.io/tags/Git/"/>
+      <category term="Git" scheme="https://xiodra.tk/tags/Git/"/>
     
-      <category term="命令" scheme="http://xiodra.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
+      <category term="命令" scheme="https://xiodra.tk/tags/%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
