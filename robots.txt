@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xiodra.tk/sitemap.xml
+Sitemap: https://xiodra.tk/baidusitemap.xml
