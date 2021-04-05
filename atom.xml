@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xiodra.tk/"/>
-  <updated>2021-03-29T08:26:37.477Z</updated>
+  <updated>2021-04-05T07:14:24.219Z</updated>
   <id>https://xiodra.tk/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL代码美化工具</title>
+    <link href="https://xiodra.tk/posts/3930d473/"/>
+    <id>https://xiodra.tk/posts/3930d473/</id>
+    <published>2021-04-05T07:08:07.000Z</published>
+    <updated>2021-04-05T07:14:24.219Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Sql代码美化工具：Sql-Pretty-Printer-for-SSMS-V3-6-1"><a href="#Sql代码美化工具：Sql-Pretty-Printer-for-SSMS-V3-6-1" class="headerlink" title="Sql代码美化工具：Sql Pretty Printer for SSMS V3.6.1"></a>Sql代码美化工具：Sql Pretty Printer for SSMS V3.6.1</h1><p><img src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/SQLPrettyPrinter01.png"></p><p>Sql Pretty Printer 这个软件主要是sql 语句进行格式化的工具，用起来很顺畅，推荐各位程序员使用。</p><p><a href="http://www.dpriver.com/dlaction.php">官方下载地址</a></p><p><a href="http://www.dpriver.com/pp/sqlformat.htm">在线版本</a> - 不支持中文</p><p><a href="http://www.dpriver.com/products/sqlpp/getforfree.php">获取免费的证书</a></p>]]></content>
+    
+    <summary type="html">
+    
+      Sql Pretty Printer 这个软件主要是sql 语句进行格式化的工具，用起来很顺畅，推荐各位程序员使用。
+    
+    </summary>
+    
+      <category term="工具" scheme="https://xiodra.tk/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="https://xiodra.tk/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="SQL" scheme="https://xiodra.tk/tags/SQL/"/>
+    
+      <category term="美化" scheme="https://xiodra.tk/tags/%E7%BE%8E%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>k8s开环境搭建</title>
