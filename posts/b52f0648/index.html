@@ -1,0 +1,423 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>开发规范 | Xiodra</title><meta name="keywords" content="开发规范,C#,NET"><meta name="author" content="Xiodra"><meta name="copyright" content="Xiodra"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="后端（Net Core）开发规范整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发规范">
+<meta property="og:url" content="https://xiodra.tk/posts/b52f0648/index.html">
+<meta property="og:site_name" content="Xiodra">
+<meta property="og:description" content="后端（Net Core）开发规范整理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/netcore.jpg">
+<meta property="article:published_time" content="2021-05-08T06:53:07.000Z">
+<meta property="article:modified_time" content="2021-05-08T07:05:26.457Z">
+<meta property="article:author" content="Xiodra">
+<meta property="article:tag" content="开发规范">
+<meta property="article:tag" content="C#">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/netcore.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/avatar.jpg"><link rel="canonical" href="https://xiodra.tk/posts/b52f0648/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-dX7QayhN2Y"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4e9d682285ce86447e7726ea5e61d92a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-08 15:05:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Xiodra/Media/images/netcore.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Xiodra</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">开发规范</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-08T06:53:07.000Z" title="发表于 2021-05-08 14:53:07">2021-05-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-05-08T07:05:26.457Z" title="更新于 2021-05-08 15:05:26">2021-05-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="开发规范"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://www.notion.so/C-c82562c7bc354d8780c2ed6269f17edf">Notion原文</a></p>
+<h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><h3 id="1、命名空间"><a href="#1、命名空间" class="headerlink" title="1、命名空间"></a>1、命名空间</h3><ul>
+<li><p>规则</p>
+<ol>
+<li>使用<strong>Pascal规则，且首字符大写</strong></li>
+<li>尽量反映其内容所提供的的整体功能</li>
+<li>存在版本号时放在命名空间名称结尾，以“<code>V</code>”开头，如：V2_1_1</li>
+<li>按项目代号.框架层.模块1…模块n.&lt;版本号&gt;顺序</li>
+</ol>
+</li>
+<li><p>例</p>
+  <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">JW.Buss.Interface.Content.Artical.Entities.V2_7</span> &#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ArticalEntity</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2、类"><a href="#2、类" class="headerlink" title="2、类"></a>2、类</h3><ul>
+<li><p>规则</p>
+<ol>
+<li>使用Pascal规则命名类名，首字母大写</li>
+<li>使用能够反映类功能的名词或名词短语命名类</li>
+<li>不要使用“<code>I</code>”、“<code>C</code>”、“<code>_</code>”等特点含义前</li>
+<li>文件名要能反映类的内容，最好是和类同名</li>
+<li>自定义异常类应以“<code>Exception</code>”结尾</li>
+<li>自定义特性应以“<code>Attribute</code>”结尾</li>
+<li>数据实体应以“<code>Entity</code>”结尾</li>
+<li>数据映射/输出应以“<code>Dto</code>”结尾</li>
+<li>AutoMapper映射规则类应以“<code>Profile</code>”结尾</li>
+</ol>
+</li>
+<li><p>例</p>
+  <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestEntity</span> &#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestAttribute</span> &#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestExecption</span> &#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestDto</span> &#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestProfile</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3、类字段（类成员）"><a href="#3、类字段（类成员）" class="headerlink" title="3、类字段（类成员）"></a>3、类字段（类成员）</h3><ul>
+<li><p>规则</p>
+<ol>
+<li>使用<strong>Camel</strong>规则命名，即首单词（或单词缩写）小写。</li>
+<li>类字段前可加“<code>_</code>”前缀</li>
+<li>禁止在普通变量前加“<code>m_</code>”（VC老命名规则）</li>
+</ol>
+</li>
+<li><p>例</p>
+  <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="built_in">string</span> name;</span><br><span class="line">	<span class="keyword">private</span> <span class="built_in">string</span> _name;</span><br><span class="line">	<span class="keyword">private</span> <span class="built_in">string</span> myFavorite;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4、属性"><a href="#4、属性" class="headerlink" title="4、属性"></a>4、属性</h3><ul>
+<li><p>规则</p>
+<ol>
+<li>使用名词定义属性</li>
+<li>使用<strong>Pascal</strong>规则</li>
+</ol>
+</li>
+<li><p>例</p>
+  <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="built_in">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="5、常量"><a href="#5、常量" class="headerlink" title="5、常量"></a>5、常量</h3><ul>
+<li><p>规则</p>
+<ol>
+<li>只读常量使用<strong>Pascal</strong>命名规则</li>
+<li>枚举名使用<strong>Pascal</strong>命名规则</li>
+<li>枚举值从小到大顺序定义</li>
+<li>静态字段或属性才有<strong>Pascal</strong></li>
+</ol>
+</li>
+<li><p>例</p>
+  <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> Name = <span class="string">&quot;JW.Quartz.Message.User&quot;</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">readonly</span> <span class="built_in">double</span> Pi = <span class="number">3.14159365753</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="6、参数"><a href="#6、参数" class="headerlink" title="6、参数"></a>6、参数</h3><ul>
+<li><p>规则</p>
+<ol>
+<li>采用<strong>camel</strong>命名规则</li>
+<li>使用描述性参数名称，参数名称应当具有最够的说明性</li>
+<li>检查方法所有输入参数的有效性</li>
+</ol>
+</li>
+<li><p>例</p>
+  <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Get</span>(<span class="params"><span class="built_in">string</span> name,<span class="built_in">string</span> favorite</span>)</span> &#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="7、接口"><a href="#7、接口" class="headerlink" title="7、接口"></a>7、接口</h3><ul>
+<li><p>规则</p>
+<ol>
+<li>采用<strong>Pascal</strong>规则，且必须以大写“<code>I</code>”开头</li>
+<li>接口名称要有意义，中间不能有下划线“<code>_</code>”等字符</li>
+<li>如果类实现了接口，名称尽量和接口相同，只是省掉“<code>I</code>”字符</li>
+</ol>
+</li>
+<li><p>例</p>
+  <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">ITest</span> &#123;&#125;</span><br><span class="line"><span class="keyword">interface</span> <span class="title">IExample</span> &#123;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="8、方法"><a href="#8、方法" class="headerlink" title="8、方法"></a>8、方法</h3><ul>
+<li><p>规则</p>
+<ol>
+<li>采用<strong>Pascal</strong>命名规则</li>
+<li>方法名应使用动词或动词短语</li>
+<li>异步方法名应以“<code>Async</code>”结尾</li>
+<li>类中访问修饰符或功能相同的方法应该放在一起，且公共或实现接口的方法在前</li>
+</ol>
+</li>
+<li><p>例</p>
+  <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Create</span>(<span class="params"><span class="built_in">string</span> name,<span class="built_in">string</span> favorite</span>)</span> &#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Task <span class="title">CreateAsync</span>(<span class="params"><span class="built_in">string</span> name,<span class="built_in">string</span> favorite</span>)</span> &#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Get</span>(<span class="params"></span>)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="9、事件"><a href="#9、事件" class="headerlink" title="9、事件"></a>9、事件</h3><ul>
+<li><p>规则</p>
+<ol>
+<li>委托名称采用<strong>Pascal</strong>命名规则</li>
+<li>定义事件的委托要是用EventHandle后缀，且包括<code>sender</code>和<code>e</code>两个参数</li>
+<li>事件用到的参数，名称要带有“<code>EnentArgs</code>”后缀</li>
+</ol>
+</li>
+<li><p>例</p>
+  <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">DoTask</span>(<span class="params"></span>)</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">event</span> DoTask <span class="title">DoTaskEventHandle</span>(<span class="params">Object sender,EventArgs e</span>)</span> &#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">event</span> DoTask <span class="title">DoTaskEventHandle2</span>(<span class="params"><span class="built_in">string</span> strEventArgs</span>)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="10、路由"><a href="#10、路由" class="headerlink" title="10、路由"></a>10、路由</h3><ul>
+<li><p>规则</p>
+<ol>
+<li>采用<strong>Pascal</strong>命名规则</li>
+<li>路由层级必须“api/[controller]/[模块1]…./[模块n]/[名词]/[动词]/[路由参数]”</li>
+<li>动词可省略</li>
+</ol>
+</li>
+<li><p>例</p>
+  <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">Route(<span class="meta-string">&quot;api/[controller]&quot;</span>)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestController</span> &#123;</span><br><span class="line">	[<span class="meta">HttpPost(<span class="meta-string">&quot;Example/Create&quot;</span>)</span>]</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Task&lt;IActionResult&gt; <span class="title">CreateAsync</span>(<span class="params">TestEntity entity</span>)</span> &#123;&#125;</span><br><span class="line">	[<span class="meta">HttpGet(<span class="meta-string">&quot;Example/&#123;id&#125;&quot;</span>)</span>]</span><br><span class="line">	<span class="comment">// [HttpGet(&quot;Example&quot;)]</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Task&lt;IActionResult&gt; <span class="title">GetExampleById</span>(<span class="params"><span class="built_in">int</span> id</span>)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="11、业务多版本并存"><a href="#11、业务多版本并存" class="headerlink" title="11、业务多版本并存"></a>11、业务多版本并存</h3><ul>
+<li><p>规则</p>
+<ol>
+<li>使用版本文件夹，第一个版本可不使用</li>
+<li>命名空间以版本结尾</li>
+<li>多版本的类名、接口名等都相同</li>
+<li>一般情况下不存在不同版本之间的混合引用，存在以命名空间区分</li>
+</ol>
+</li>
+<li><p>例</p>
+  <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认，1.0</span></span><br><span class="line"><span class="comment">// 文件夹：Test</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">JW.Buss.Interface.Test</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">ITestService</span> &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 文件夹：Test</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">JW.Buss.Service.Test</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestService</span> : <span class="title">ITestService</span> &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 文件夹：Controller/Test</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Api.Test</span> &#123;</span><br><span class="line">	<span class="keyword">using</span> JW.Buss.Interface.Test;</span><br><span class="line">	[<span class="meta">Route(<span class="meta-string">&quot;api/[controller]&quot;</span>)</span>]</span><br><span class="line">	<span class="comment">// [ApiVersion(&quot;1.0&quot;)]</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestController</span> &#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">readonly</span> ITestService _testService;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">TestController</span>(<span class="params">ITestService testService</span>)</span> &#123;</span><br><span class="line">			_testService= testService;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.0</span></span><br><span class="line"><span class="comment">// 文件夹：Test/V2.0</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">JW.Buss.Interface.Test.V2_0</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">ITestService</span> &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 文件夹：Test/V2.0</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">JW.Buss.Service.Test.V2_0</span> &#123;</span><br><span class="line">	<span class="keyword">using</span> JW.Buss.Interface.Test.V2_0;</span><br><span class="line">	<span class="comment">// public class TestService : Interface.Test.V2_0.ITestService &#123;&#125;</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestService</span> : <span class="title">ITestService</span> &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 文件夹：Controller/Test/V2.0</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Api.Test.V2_0</span> &#123;</span><br><span class="line">	<span class="keyword">using</span> JW.Buss.Interface.Test.V2_0;</span><br><span class="line">	[<span class="meta">Route(<span class="meta-string">&quot;api/[controller]&quot;</span>)</span>]</span><br><span class="line">	[<span class="meta">ApiVersion(<span class="meta-string">&quot;2.0&quot;</span>)</span>]</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestController</span> &#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">readonly</span> ITestService _testService;</span><br><span class="line">		<span class="comment">// private readonly Buss.Interface.Test.V2_0.ITestService _test;</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">TestController</span>(<span class="params">ITestService testService</span>)</span> &#123;</span><br><span class="line">		<span class="comment">// public TestController(Buss.Interface.Test.V2_0.ITestServicetestService) &#123;</span></span><br><span class="line">			_testService= testService;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="注释规范"><a href="#注释规范" class="headerlink" title="注释规范"></a>注释规范</h1><h3 id="1、文件头部注释"><a href="#1、文件头部注释" class="headerlink" title="1、文件头部注释"></a>1、文件头部注释</h3><ul>
+<li>规则<ol>
+<li>文件都包含文件头，要说明文件名、作者、创建时间、变更记录</li>
+</ol>
+</li>
+</ul>
+<h3 id="2、类、属性、函数体注释"><a href="#2、类、属性、函数体注释" class="headerlink" title="2、类、属性、函数体注释"></a>2、类、属性、函数体注释</h3><ul>
+<li>规则<ol>
+<li>使用“<code>///</code>”三斜线注释</li>
+<li>应尽量说明问题</li>
+</ol>
+</li>
+</ul>
+<h3 id="3、缩写规范"><a href="#3、缩写规范" class="headerlink" title="3、缩写规范"></a>3、缩写规范</h3><ul>
+<li>规则<ol>
+<li>标识符应当直观可望文知意，不提倡使用任何缩写</li>
+<li>字符串变量推荐是用“<code>str</code>”或“<code>s</code>”开头，采用string.Empty来初始化。</li>
+<li>普通对象可以以“obj”开头。</li>
+<li>缩写可自行定义，一般取单词的前/后字符组成，以含义直观为准则。</li>
+<li>一般情况下不要让缩写破坏标识符的含义。</li>
+</ol>
+</li>
+</ul>
+<h3 id="4、排版"><a href="#4、排版" class="headerlink" title="4、排版"></a>4、排版</h3><ul>
+<li>规则<ol>
+<li>每行语句至少占一行，如果语句过长（超过一屏），应不超过100字符，则该语句断为两行显示。</li>
+<li>把相似的内容放在一起，比如字段、属性、方法、事件等，使用“#region–#endregion”命令分组。</li>
+<li>多个程序元素进行对等操作时， 操作符之前、之后或者前后都要加空格。</li>
+<li>每个方法的源程序行数原则上应该少于200行。(如果超过过多，则需要另写一方法)</li>
+<li>语句嵌套层次不得超过3层。</li>
+<li>避免相同的代码段在多个地方出现。(尽量避免代码重复，能复用则复用)</li>
+<li>函数与函数之间的空行必须<strong>1</strong>行</li>
+</ol>
+</li>
+</ul>
+<h3 id="5、语句结构"><a href="#5、语句结构" class="headerlink" title="5、语句结构"></a>5、语句结构</h3><ul>
+<li>规则<ol>
+<li>如果使用了异常结构，一定要处理异常， 一般是要写日志文件。</li>
+<li>分支语句不应该使用复杂长条件， 应该将长条件封装成方法。</li>
+<li>switch语句，case后面必须接break或者return</li>
+<li>禁止使用goto语句进行跳转。</li>
+<li>行文中严禁出现“魔数”，特定含义的常数必须定义成枚举或常量。</li>
+<li>不同类型的操作符混合使用时，使用括号给出优先级。</li>
+<li>不允许使用复杂的操作符组合等。</li>
+<li>循环、判断语句的程序块部分用花括号括起来， 即使只有一条语句。</li>
+<li>在switch语句中总是要有default字句，建议使用断言。</li>
+<li>每个类和方法完成单一的功能，不设计多用途面面俱到的类或方法。</li>
+<li>严禁使用未经初始化的变量，变量通常使用构造方法来初始。</li>
+</ol>
+</li>
+</ul>
+<h3 id="6、代码缩进"><a href="#6、代码缩进" class="headerlink" title="6、代码缩进"></a>6、代码缩进</h3><ul>
+<li><p>规则</p>
+<ol>
+<li><p>不允许使用Java中的括号换行规范</p>
+</li>
+<li><p>使用<strong>4</strong>个空格来表示缩进</p>
+</li>
+<li><p>花括号</p>
+<ol>
+<li>类的自动属性花括号与代码合占一行，例<code>public string Name &#123;get;set;&#125;</code></li>
+<li>左花括号 “{” 放于关键字或方法名同一行</li>
+</ol>
+ <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span> &#123;</span><br><span class="line">		<span class="keyword">if</span>(valid) &#123;</span><br><span class="line">				<span class="comment">// if valid</span></span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="comment">// not valid</span></span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">				<span class="comment">// do something</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+<h3 id="7、大小写"><a href="#7、大小写" class="headerlink" title="7、大小写"></a>7、大小写</h3><ul>
+<li>规则<ol>
+<li>不要创建名称相同，但大小写区别的任何元素。</li>
+<li>应当大写仅有两个字符的缩写。(如果只有两个字符，则都大写)</li>
+<li>不要把易混淆的数字和字符放在一起。</li>
+<li>使用英文命名标识符。</li>
+</ol>
+</li>
+</ul>
+<h3 id="8、重名规范"><a href="#8、重名规范" class="headerlink" title="8、重名规范"></a>8、重名规范</h3><ul>
+<li>规则<ol>
+<li>不允许变量名、类名、属性名、 方法名等与系统标识符重名</li>
+</ol>
+</li>
+</ul>
+<h3 id="9、SQL编码规范"><a href="#9、SQL编码规范" class="headerlink" title="9、SQL编码规范"></a>9、SQL编码规范</h3><ul>
+<li>规则<ol>
+<li>SQL语句全部大写</li>
+<li>对较为复杂的SQL语句加上注释，说明其功能。</li>
+<li>连接符OR、IN、AND、以及=、&lt;=、&gt;=等前后加空格。</li>
+<li>使用明确的列代替 SELECT *。</li>
+<li>表名必须以“<code>t_</code>”开头</li>
+<li>视图必须以“<code>v_</code>”开头</li>
+</ol>
+</li>
+</ul>
+<h3 id="10、软件架构"><a href="#10、软件架构" class="headerlink" title="10、软件架构"></a>10、软件架构</h3><ul>
+<li>规则<ol>
+<li>数据库中每一张表对应一个实体类（Entity）</li>
+<li>实体类名称使用表名，必须带有<code>Entity</code>后缀。</li>
+<li>数据传输对象，必须带有<code>Dto</code>后缀</li>
+<li>服务接口，必须带有<code>Service</code>后缀</li>
+</ol>
+</li>
+</ul>
+<h1 id="附表"><a href="#附表" class="headerlink" title="附表"></a>附表</h1><p><a target="_blank" rel="noopener" href="https://www.notion.so/f12ab500b3c8451a9a98ede58dd21da5">表1 各种类型命名规范</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/5b1458274025498db44bd2b7e6a23560">表2 数据类型缩规范</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Xiodra</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://xiodra.tk/posts/b52f0648/">https://xiodra.tk/posts/b52f0648/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xiodra.tk" target="_blank">Xiodra</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/">开发规范</a><a class="post-meta__tags" href="/tags/C/">C#</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/netcore.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/3930d473/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/lufei.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SQL代码美化工具</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Xiodra</div><div class="author-info__description">拥抱Net Core,学习Dapr,掌握未来</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xiodra"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">主题更新中...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">1.</span> <span class="toc-text">命名规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、命名空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E7%B1%BB"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E7%B1%BB%E5%AD%97%E6%AE%B5%EF%BC%88%E7%B1%BB%E6%88%90%E5%91%98%EF%BC%89"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、类字段（类成员）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%B1%9E%E6%80%A7"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E5%B8%B8%E9%87%8F"><span class="toc-number">1.0.5.</span> <span class="toc-text">5、常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E5%8F%82%E6%95%B0"><span class="toc-number">1.0.6.</span> <span class="toc-text">6、参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.0.7.</span> <span class="toc-text">7、接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E6%96%B9%E6%B3%95"><span class="toc-number">1.0.8.</span> <span class="toc-text">8、方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.0.9.</span> <span class="toc-text">9、事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81%E8%B7%AF%E7%94%B1"><span class="toc-number">1.0.10.</span> <span class="toc-text">10、路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E3%80%81%E4%B8%9A%E5%8A%A1%E5%A4%9A%E7%89%88%E6%9C%AC%E5%B9%B6%E5%AD%98"><span class="toc-number">1.0.11.</span> <span class="toc-text">11、业务多版本并存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83"><span class="toc-number">2.</span> <span class="toc-text">注释规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%96%87%E4%BB%B6%E5%A4%B4%E9%83%A8%E6%B3%A8%E9%87%8A"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、文件头部注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E7%B1%BB%E3%80%81%E5%B1%9E%E6%80%A7%E3%80%81%E5%87%BD%E6%95%B0%E4%BD%93%E6%B3%A8%E9%87%8A"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、类、属性、函数体注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E7%BC%A9%E5%86%99%E8%A7%84%E8%8C%83"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、缩写规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E6%8E%92%E7%89%88"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、排版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E8%AF%AD%E5%8F%A5%E7%BB%93%E6%9E%84"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、语句结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E4%BB%A3%E7%A0%81%E7%BC%A9%E8%BF%9B"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、代码缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="toc-number">2.0.7.</span> <span class="toc-text">7、大小写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E9%87%8D%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">2.0.8.</span> <span class="toc-text">8、重名规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81SQL%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83"><span class="toc-number">2.0.9.</span> <span class="toc-text">9、SQL编码规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84"><span class="toc-number">2.0.10.</span> <span class="toc-text">10、软件架构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text">附表</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/b52f0648/" title="开发规范"><img src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/netcore.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="开发规范"/></a><div class="content"><a class="title" href="/posts/b52f0648/" title="开发规范">开发规范</a><time datetime="2021-05-08T06:53:07.000Z" title="发表于 2021-05-08 14:53:07">2021-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3930d473/" title="SQL代码美化工具"><img src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/lufei.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SQL代码美化工具"/></a><div class="content"><a class="title" href="/posts/3930d473/" title="SQL代码美化工具">SQL代码美化工具</a><time datetime="2021-04-05T07:08:07.000Z" title="发表于 2021-04-05 15:08:07">2021-04-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8407d35b/" title="k8s开环境搭建"><img src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/kubernetes%2001.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="k8s开环境搭建"/></a><div class="content"><a class="title" href="/posts/8407d35b/" title="k8s开环境搭建">k8s开环境搭建</a><time datetime="2021-03-29T07:55:29.000Z" title="发表于 2021-03-29 15:55:29">2021-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d8072310/" title="Docker for Windows 使用 VMware Workstation"><img src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/lufei.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker for Windows 使用 VMware Workstation"/></a><div class="content"><a class="title" href="/posts/d8072310/" title="Docker for Windows 使用 VMware Workstation">Docker for Windows 使用 VMware Workstation</a><time datetime="2019-06-03T07:31:15.000Z" title="发表于 2019-06-03 15:31:15">2019-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/30f4ba73/" title="CSS模块化"><img src="https://cdn.jsdelivr.net/gh/Xiodra/Media/images/lufei.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS模块化"/></a><div class="content"><a class="title" href="/posts/30f4ba73/" title="CSS模块化">CSS模块化</a><time datetime="2018-12-10T02:16:57.000Z" title="发表于 2018-12-10 10:16:57">2018-12-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/Xiodra/Media/images/netcore.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Xiodra</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="102,204,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'Xiodra',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
