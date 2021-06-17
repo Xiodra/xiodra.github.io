@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiodra.tk/tags/index.html</loc>
+    
+    <lastmod>2021-06-17T01:17:45.844Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xiodra.tk/about/index.html</loc>
+    
+    <lastmod>2021-06-17T01:17:34.290Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xiodra.tk/categories/index.html</loc>
+    
+    <lastmod>2021-06-17T01:17:31.072Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xiodra.tk/posts/8407d35b/</loc>
     
     <lastmod>2021-05-13T06:43:51.887Z</lastmod>
@@ -89,27 +110,6 @@
     <loc>https://xiodra.tk/posts/63a2d85/</loc>
     
     <lastmod>2021-03-29T01:47:55.512Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xiodra.tk/tags/index.html</loc>
-    
-    <lastmod>2021-03-27T06:32:55.085Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xiodra.tk/about/index.html</loc>
-    
-    <lastmod>2021-03-27T06:32:55.084Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xiodra.tk/categories/index.html</loc>
-    
-    <lastmod>2021-03-27T06:32:55.084Z</lastmod>
     
   </url>
   
